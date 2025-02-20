@@ -11,39 +11,13 @@ public class Gioco2stream{
             Files.lines(Paths.get("input.txt"))
                 .map(riga -> riga.split(" "))
                 .map(arrayOfStrings -> Stream.of(arrayOfStrings).map(Integer::parseInt).toArray(i -> new Integer[i]))
-                .map(arrayOfIntegers)
+                .map(arrayOfIntegers -> Stream.of(arrayOfIntegers).reduce((a,b) -> {if (a > b) {return false;}}));
 
+
+            
 
         } catch (Exception e) {
             // TODO: handle exception
-        }
-        
-    }
-
-    boolean Crescente(ArrayList<Integer> report){      //controllo se il report è crescente
-        for (int i=0; i < report.size()-1; i++){
-            if(report.get(i) >= report.get(i+1)){
-                return false;
-            }
-        }
-    return true;
-    } 
-
-    boolean Decrescente(ArrayList<Integer> report){      //controllo se il report è decrescente
-        for (int i=0; i < report.size()-1; i++){
-            if(report.get(i) <= report.get(i+1)){
-                return false;
-            }
-        }
-    return true;
-    }
-
-    boolean DistanzaNum(ArrayList<Integer> report){                  //controlla la differenza se è accettabile
-        for(int i=0; i < report.size()-1; i++){
-            if (Math.abs(report.get(i) - report.get(i+1)) < 1 ||  Math.abs(report.get(i) - report.get(i+1)) > 3 ){
-                return false;
-            }
-        }
-    return true;
+        } 
     }
 }
