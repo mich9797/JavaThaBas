@@ -11,13 +11,19 @@ public class Gioco2stream{
             Files.lines(Paths.get("input.txt"))
                 .map(riga -> riga.split(" "))
                 .map(arrayOfStrings -> Stream.of(arrayOfStrings).map(Integer::parseInt).toArray(i -> new Integer[i]))
-                .map(arrayOfIntegers -> Stream.of(arrayOfIntegers));
-
-
-            
+                .map(arrayOfIntegers -> Stream.of(arrayOfIntegers))
 
         } catch (Exception e) {
             // TODO: handle exception
         } 
+    }
+
+    boolean Crescente(ArrayList<Integer> report){      //controllo se il report è crescente
+        for (int i=0; i < report.size()-1; i++){
+            if(report.get(i) >= report.get(i+1)){
+                return false;
+            }
+        }
+    return true;
     }
 }
