@@ -11,7 +11,7 @@ public class Gioco2stream{
             Files.lines(Paths.get("input.txt"))
                 .map(riga -> riga.split(" "))
                 .map(arrayOfStrings -> Stream.of(arrayOfStrings).map(Integer::parseInt).toArray(i -> new Integer[i]))
-                .map(arrayOfIntegers -> Stream.of(arrayOfIntegers).reduce((a,b) -> {if (a > b) {return false;}}));
+                .map(arrayOfIntegers -> Stream.of(arrayOfIntegers));
 
 
             
