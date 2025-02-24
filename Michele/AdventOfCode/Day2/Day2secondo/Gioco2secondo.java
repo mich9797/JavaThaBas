@@ -60,16 +60,20 @@ public class Gioco2secondo {
 
     private static boolean controlloFinale(List<Integer> report){
         if(is_valid(report)){
+            
             return true;
         }
         int cont = 0;
-        for(int i=0; i < report.size() -1; i++){
+        
+        for(int i=0; i <= report.size() -1; i++){
             List<Integer> copia = new ArrayList<>(report);
             copia.remove(i);
             if (is_valid(copia)){
+                
                 return true;
             }
         }
+        
         return false;
     }
 }
