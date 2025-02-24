@@ -16,64 +16,60 @@ public class Gioco2secondo {
             var src = new BufferedReader(new InputStreamReader(new FileInputStream("input2.txt")));
 
             var valid = src.lines()
-                            .map(Gioco2secondo::parseReport) // ritorna List<Integer> di ogni riga
-                            .filter(Gioco2secondo::valido)
-                            .count();
+                    .map(Gioco2secondo::parseReport)
+                    .filter(Gioco2secondo::controlloFinale)
+                    .count();
 
-            System.out.println("report validi " + valid);
-
+            System.out.format("Valid record count is: %d\n", valid);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static List<Integer> parseReport(String s) { //trasformo in lista la riga
+    private static boolean is_valid(List<Integer> report) {
+        var forward = new ArrayList<>(report);
+        Collections.sort(forward);
+
+        var backward = new ArrayList<>(report);
+        Collections.sort(backward, (a, b) -> -a.compareTo(b));
+
+        if (!report.equals(forward) && !report.equals(backward)) {
+            return false;
+        }
+
+
+        Stream<Integer> distances = null; // report.stream()
+                // .windows(2)
+                // .map((a,b) -> Math.abs(a - b))
+                // .noneMatch(d -> d < 1 || d > 3);
+
+        for (int i = 0; i < report.size() - 1; i++) {
+            int distance = Math.abs(report.get(i) - report.get(i + 1));
+            if (distance < 1 || distance > 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static List<Integer> parseReport(String s) {
         return Arrays.stream(s.split(" "))
                 .map(Integer::parseInt)
                 .toList();
     }
 
-    private static boolean cresce(List<Integer> report){ //controllo se crescente con max 1 errore
-        int errore  = 0;
-        for (int i=0; i < report.size()-1; i++){
-            if (report.get(i) > report.get(i+1)){
-                errore++;
-                if (errore > 1){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private static boolean decre(List<Integer> report){  //controllo se decrescente con max 1 errore
-        int errore  = 0;
-        for (int i=0; i < report.size()-1; i++){
-            if (report.get(i) < report.get(i+1)){
-                errore++;
-                if (errore > 1){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private static boolean valido(List<Integer> report){
-        if(cresce(report) || decre(report)){
-            int errore = 0;
-            for (int i = 0; i < report.size() - 1; i++) {
-                int distance = Math.abs(report.get(i) - report.get(i + 1));
-                if(distance < 1 || distance > 3){
-                    errore++;
-                    if(errore > 1){
-                        return false;
-                    }
-                }
-            }
+    private static boolean controlloFinale(List<Integer> report){
+        if(is_valid(report)){
             return true;
-        }else {
-            return false;
         }
+        int cont = 0;
+        for(int i=0; i < report.size() -1; i++){
+            List<Integer> copia = new ArrayList<>(report);
+            copia.remove(i);
+            if (is_valid(copia)){
+                return true;
+            }
+        }
+        return false;
     }
 }
