@@ -26,39 +26,10 @@ public class Day4primoString{
             System.out.println(testo);
             int xmas = 0;
 
-            for (String stringa : testo) {
-                Pattern pattern = Pattern.compile("XMAS");
-                Matcher match = pattern.matcher(stringa); 
-                while(match.find()){ //orizzontale
-                    xmas++;
-                }
-                String stringaReverse = reverseString(stringa); // orizzontale contrario
-                match = pattern.matcher(stringaReverse);
-                while(match.find()){
-                    xmas++;
-                }                                
-            }
-
-            for (int i=0; i < testo.get(0).length(); i++){
-                String verticale = "";
-                for (String string : testo) {
-                    verticale = verticale + string.charAt(i);
-                }
-                Pattern pattern = Pattern.compile("XMAS");
-                Matcher match = pattern.matcher(verticale); 
-                while(match.find()){
-                    xmas++;
-                }
-                String stringaReverse = reverseString(verticale); // verticale contrario
-                match = pattern.matcher(stringaReverse);
-                while(match.find()){
-                    xmas++;
-                }   
-            }
-
-
-            
-           
+            xmas += orizzontale(testo);
+            xmas += verticale(testo);
+            xmas += daigonali(testo);
+            xmas += altreDiagonali(testo);
 
             System.out.println(xmas);
      
@@ -75,4 +46,72 @@ public class Day4primoString{
         }
         return result;
       }
+
+    public static int orizzontale(List<String> testo){
+        int xmas = 0;
+        for (String stringa : testo) {
+            xmas += conta(stringa);                        
+        }
+        return xmas;
+    }
+
+    public static int verticale(List<String> testo){
+        int xmas = 0;
+        for (int i=0; i < testo.get(0).length(); i++){
+            String verticale = "";
+            for (String string : testo) {
+                verticale = verticale + string.charAt(i);
+            }
+            
+            xmas += conta(verticale);
+        }
+        return xmas;
+    }
+
+    public static int daigonali(List<String> testo){
+        int xmas = 0;
+        for (int k = -(testo.size() - 1); k < testo.get(0).length(); k++) {
+            String diagonale = "";
+            for (int i = 0; i < testo.size(); i++) {
+                int j = i + k;
+                if (j >= 0 && j < testo.get(0).length()) {
+                    diagonale = diagonale +(testo.get(i).charAt(j));
+                }
+            }
+            
+            xmas += conta(diagonale);
+        }
+        return xmas;
+    }
+
+    public static int altreDiagonali(List<String> testo){
+        int xmas = 0;
+        for (int diff = -(testo.get(0).length() - 1); diff < testo.size(); diff++) {
+            String diagonale = "";
+            for (int i = 0; i < testo.size(); i++) {
+                int j = i - diff; // Calcola l'indice di colonna usando la differenza
+                if (j >= 0 && j < testo.get(0).length()) {
+                    diagonale = diagonale +(testo.get(i).charAt(j));
+                }
+            }
+            xmas += conta(diagonale);
+        }
+        return xmas;
+    }
+
+    public static int conta(String stringa){
+        int xmas = 0;
+        Pattern pattern = Pattern.compile("XMAS");
+        Matcher match = pattern.matcher(stringa);
+        while (match.find()) {
+            xmas++;
+        }
+
+        String stringaReverse = reverseString(stringa);
+        match = pattern.matcher(stringaReverse);
+        while (match.find()) {
+            xmas++;
+        }
+        return xmas;
+    }
 }
