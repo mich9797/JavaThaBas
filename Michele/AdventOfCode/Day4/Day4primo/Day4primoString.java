@@ -19,19 +19,121 @@ public class Day4primoString{
             List<String> testo = new ArrayList<>();
 
             src.lines()
-                .forEach(riga -> {
-                    testo.add(riga);
-                });
+                .forEach(riga -> testo.add(riga));
 
-            System.out.println(testo);
             int xmas = 0;
 
-            stampaDiagonaliPrincipali(testo);
-     
-        
+            xmas += orizzontale(testo);
+            xmas += verticale(testo);
+            xmas += DiagonaliPrincipali(testo);
+            xmas += DiagonaliSecondarie(testo);
+                
+            System.out.println(xmas);
+
+
         } catch (Exception e) {
             // TODO: handle exception
         }
+    }
+
+    public static int orizzontale(List<String> testo){
+        int cont = 0;
+        for (String stringa : testo) {
+            cont += conta(stringa);                        
+        }
+        return cont;
+    }
+
+    public static int verticale(List<String> testo){
+        int cont = 0;
+        for (int i=0; i < testo.get(0).length(); i++){
+            String verticale = "";
+            for (String string : testo) {
+                verticale = verticale + string.charAt(i);
+            }
+            
+            cont += conta(verticale);
+        }
+        return cont;
+    }
+
+    public static int DiagonaliPrincipali(List<String> testo) {
+        int n = testo.size();
+        int cont = 0;
+
+        // Diagonali sopra e sulla principale
+        for (int col = 0; col < n; col++) {
+            String diagonale ="";
+            int i = 0, j = col;
+            while (i < n && j < n) {
+                diagonale = diagonale + (testo.get(i).charAt(j));
+                i++;
+                j++;
+            }
+            cont += conta(diagonale);
+            
+        }
+        
+         // Diagonali sotto la principale
+        for (int row = 1; row < n; row++) {
+             int i = row, j = 0;
+             String diagonale ="";
+             while (i < n && j < n) {
+                 diagonale = diagonale + (testo.get(i).charAt(j));
+                 i++;
+                 j++;
+             }
+             cont += conta(diagonale);
+        }
+        return cont;
+    }
+
+    public static int DiagonaliSecondarie(List<String> testo) {
+        int n = testo.size();
+        int cont = 0;
+
+        // Diagonali sopra e sulla secondaria
+        for (int col = n - 1; col >= 0; col--) {
+            int i = 0, j = col;
+            String diagonale ="";
+            while (i < n && j >= 0) {
+                diagonale = diagonale + (testo.get(i).charAt(j));
+                i++;
+                j--;
+            }
+            cont += conta(diagonale);
+        }
+
+        // Diagonali sotto la secondaria
+        for (int row = 1; row < n; row++) {
+            int i = row, j = n - 1;
+            String diagonale ="";
+            while (i < n && j >= 0) {
+                diagonale = diagonale + (testo.get(i).charAt(j));
+                i++;
+                j--;
+            }
+            cont += conta(diagonale);
+        }
+
+        return cont;
+    }
+    
+
+    public static int conta(String stringa){
+        int cont = 0;
+        Pattern pattern = Pattern.compile("XMAS");
+        Matcher match = pattern.matcher(stringa);
+        while (match.find()) {
+            cont++;
+        }
+
+        String stringaReverse = reverseString(stringa);
+        match = pattern.matcher(stringaReverse);
+        while (match.find()) {
+            cont++;
+        }
+        return cont;
     }
 
     public static String reverseString(String str) {
@@ -40,72 +142,5 @@ public class Day4primoString{
            result = str.charAt(i) + result;
         }
         return result;
-      }
-
-    public static int orizzontale(List<String> testo){
-        int xmas = 0;
-        for (String stringa : testo) {
-            xmas += conta(stringa);                        
-        }
-        return xmas;
-    }
-
-    public static void stampaDiagonaliPrincipali(List<String> testo) {
-        int n = testo.size();
-
-        // Diagonali sopra e sulla principale
-        String diagonale ="";
-        for (int col = 0; col < n; col++) {
-            int i = 0, j = col;
-            while (i < n && j < n) {
-                diagonale = diagonale + (testo.get(i).charAt(j));
-                i++;
-                j++;
-            }
-            System.out.println();
-        }
-
-        // // Diagonali sotto la principale
-        // for (int row = 1; row < n; row++) {
-        //     int i = row, j = 0;
-        //     while (i < n && j < n) {
-        //         System.out.print(matrice[i][j] + " ");
-        //         i++;
-        //         j++;
-        //     }
-        //     System.out.println();
-        // }
-    }
-
-
-    public static int verticale(List<String> testo){
-        int xmas = 0;
-        for (int i=0; i < testo.get(0).length(); i++){
-            String verticale = "";
-            for (String string : testo) {
-                verticale = verticale + string.charAt(i);
-            }
-            
-            xmas += conta(verticale);
-        }
-        return xmas;
-    }
-
-    
-
-    public static int conta(String stringa){
-        int xmas = 0;
-        Pattern pattern = Pattern.compile("XMAS");
-        Matcher match = pattern.matcher(stringa);
-        while (match.find()) {
-            xmas++;
-        }
-
-        String stringaReverse = reverseString(stringa);
-        match = pattern.matcher(stringaReverse);
-        while (match.find()) {
-            xmas++;
-        }
-        return xmas;
     }
 }
