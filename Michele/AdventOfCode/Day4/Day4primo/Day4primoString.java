@@ -26,15 +26,7 @@ public class Day4primoString{
             System.out.println(testo);
             int xmas = 0;
 
-            xmas += orizzontale(testo);
-            System.out.println(xmas);
-            xmas += verticale(testo);
-            System.out.println(xmas);
-            xmas += daigonali(testo);
-            System.out.println(xmas);
-            xmas += altreDiagonali(testo);
-
-            System.out.println(xmas);
+            stampaDiagonaliPrincipali(testo);
      
         
         } catch (Exception e) {
@@ -58,6 +50,34 @@ public class Day4primoString{
         return xmas;
     }
 
+    public static void stampaDiagonaliPrincipali(List<String> testo) {
+        int n = testo.size();
+
+        // Diagonali sopra e sulla principale
+        String diagonale ="";
+        for (int col = 0; col < n; col++) {
+            int i = 0, j = col;
+            while (i < n && j < n) {
+                diagonale = diagonale + (testo.get(i).charAt(j));
+                i++;
+                j++;
+            }
+            System.out.println();
+        }
+
+        // // Diagonali sotto la principale
+        // for (int row = 1; row < n; row++) {
+        //     int i = row, j = 0;
+        //     while (i < n && j < n) {
+        //         System.out.print(matrice[i][j] + " ");
+        //         i++;
+        //         j++;
+        //     }
+        //     System.out.println();
+        // }
+    }
+
+
     public static int verticale(List<String> testo){
         int xmas = 0;
         for (int i=0; i < testo.get(0).length(); i++){
@@ -71,36 +91,7 @@ public class Day4primoString{
         return xmas;
     }
 
-    public static int daigonali(List<String> testo){
-        int xmas = 0;
-        for (int k = -(testo.size() - 1); k < testo.get(0).length(); k++) {
-            String diagonale = "";
-            for (int i = 0; i < testo.size(); i++) {
-                int j = i + k;
-                if (j >= 0 && j < testo.get(0).length()) {
-                    diagonale = diagonale +(testo.get(i).charAt(j));
-                }
-            }
-            
-            xmas += conta(diagonale);
-        }
-        return xmas;
-    }
-
-    public static int altreDiagonali(List<String> testo){
-        int xmas = 0;
-        for (int diff = -(testo.get(0).length() - 1); diff < testo.size(); diff++) {
-            String diagonale = "";
-            for (int i = 0; i < testo.size(); i++) {
-                int j = i - diff; 
-                if (j >= 0 && j < testo.get(0).length()) {
-                    diagonale = diagonale +(testo.get(i).charAt(j));
-                }
-            }
-            xmas += conta(diagonale);
-        }
-        return xmas;
-    }
+    
 
     public static int conta(String stringa){
         int xmas = 0;
