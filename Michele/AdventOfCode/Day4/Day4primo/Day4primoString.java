@@ -27,8 +27,11 @@ public class Day4primoString{
             int xmas = 0;
 
             xmas += orizzontale(testo);
+            System.out.println(xmas);
             xmas += verticale(testo);
+            System.out.println(xmas);
             xmas += daigonali(testo);
+            System.out.println(xmas);
             xmas += altreDiagonali(testo);
 
             System.out.println(xmas);
@@ -89,7 +92,7 @@ public class Day4primoString{
         for (int diff = -(testo.get(0).length() - 1); diff < testo.size(); diff++) {
             String diagonale = "";
             for (int i = 0; i < testo.size(); i++) {
-                int j = i - diff; // Calcola l'indice di colonna usando la differenza
+                int j = i - diff; 
                 if (j >= 0 && j < testo.get(0).length()) {
                     diagonale = diagonale +(testo.get(i).charAt(j));
                 }
