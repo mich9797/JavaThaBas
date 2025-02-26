@@ -21,7 +21,7 @@ public class Day5primo{
                     }else if(!riga.isEmpty()){
                         sequenze.add(salvaSequenza(riga)); // leggo la riga e separo i numeri dalla ","
                     }
-                }); 
+                });                   
 
             int somma = 0;
             for (List<Integer> rigaSequenza : sequenze){  //rigasequenza = 75 47 61 53 29
