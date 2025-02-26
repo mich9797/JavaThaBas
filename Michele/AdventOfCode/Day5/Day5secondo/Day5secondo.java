@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Day5primo{
+public class Day5secondo{
     public static void main(String[] args){
         try {
             var src = new BufferedReader(new InputStreamReader(new FileInputStream("input5.txt")));
@@ -22,29 +22,20 @@ public class Day5primo{
                         sequenze.add(salvaSequenza(riga)); // leggo la riga e separo i numeri dalla ","
                     }
                 });     
+                
 
-            int somma = sequenze.stream()
-                        .filter(sequenza -> esaminoSequenza(sequenza, coppieRegole))
-                        .mapToInt(sequenza -> {
-                            return valoreDimezzo(sequenza);
-                        })
-                        .sum();
+            for (List<Integer> rigaSequenza : sequenze){  //rigasequenza = 75 47 61 53 29
+                boolean sequenzaCorretta = esaminoSequenza(rigaSequenza, coppieRegole);   //controllo che la rigaSequenza sia valida
+                if (!sequenzaCorretta){
+                    riordinaSequenza(); //----------
+                }
+            }
 
-            // int somma = 0;
-            // for (List<Integer> rigaSequenza : sequenze){  //rigasequenza = 75 47 61 53 29
-            //     boolean sequenzaCorretta = esaminoSequenza(rigaSequenza, coppieRegole);   //controllo che la rigaSequenza sia valida
-            //     if (sequenzaCorretta){
-            //         somma += valoreDimezzo(rigaSequenza);    //sommo valore di mezzo
-            //     }
-            // }
-
-            System.out.println(somma);
 
         } catch (Exception e) {
             // TODO: handle exception
         }
     }
-
 
     public static List<Integer> leggiCoppie(String riga){
         return Arrays.stream(riga.split("\\|"))
@@ -92,6 +83,10 @@ public class Day5primo{
     public static int valoreDimezzo(List<Integer> rigaSequenza){
         int posizione = rigaSequenza.size()/2;
         return rigaSequenza.get(posizione);
+    }
+
+    public static void riordinaSequenza(List<Integer> rigaSequenza, List<List<Integer>> coppieRegole){
+        
     }
 
 }
