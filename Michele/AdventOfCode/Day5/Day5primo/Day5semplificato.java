@@ -14,7 +14,7 @@ public class Day5semplificato{
             var src = new BufferedReader(new InputStreamReader(new FileInputStream("input5.txt")));
 
             List<List<Integer>> regole = new ArrayList<>();   //potrebbe essere una lista di Pair (vai a vedere)
-            int somma = 0;
+            List<Integer> daSommare = new  ArrayList<>();
 
             src.lines()
                 .forEach(riga -> {
@@ -28,33 +28,39 @@ public class Day5semplificato{
                             seqNum.add(Integer.parseInt(num));
                         }
                         
-                        boolean corretto = true;
-                        for (int i=0; i < seqNum.size(); i++){
+                        boolean isCorretto = true;
+                        for (int i=0; i < seqNum.size()-1; i++){
                             int n1 = seqNum.get(i);
                             int n2 = seqNum.get(i+1);
                             
                             for (List<Integer> coppia : regole){
-                                if (coppia.get(0) == n1){
-                                    if (coppia.get(1) == n2){
+                                if (coppia.get(0) == n2){
+                                    if (coppia.get(1) == n1){
                                         int temp = n1;
                                         seqNum.set(i, n2);
                                         seqNum.set(i+1, temp);
-                                        corretto = false;
+                                        isCorretto = false;
                                         return;
                                     }
                                 }
                             }
-                            if (!corretto){
+                            if(!isCorretto){
                                 return;
-                            }
+                            };
                         }
-                        if (corretto){
-                            somma += valoreDimezzo(seqNum);
+                        if(isCorretto){
+                            daSommare.add(valoreDimezzo(seqNum));
                         }
                     }
-                });  
+                });
 
-            System.out.println(somma);
+                int somma = 0;
+                for (int num : daSommare) {
+                    somma += num;
+                }
+
+                System.out.println(somma);
+            
 
         } catch (Exception e) {
             // TODO: handle exception
