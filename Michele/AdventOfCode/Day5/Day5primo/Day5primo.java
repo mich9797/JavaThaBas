@@ -14,6 +14,23 @@ public class Day5primo{
             List<List<Integer>> coppieRegole = new ArrayList<>(); 
             List<List<Integer>> sequenze = new ArrayList<>();
 
+            for (sequenza in sequenze){
+                for (int i = 0; i< sequenza.size; i++) {
+                    int first = sequenza[1]
+                    int second = sequenza[2]
+
+                    for (regola in regole) {
+                        if (regola[1] = first)
+                            continue
+                        else {
+                            //cambio
+                            i = 0
+                            continue
+                        }
+                    }
+                }
+            }
+
             src.lines()
                 .forEach(riga -> {
                     if(!riga.isEmpty() && riga.length() == 5){
@@ -25,21 +42,11 @@ public class Day5primo{
 
             int somma = sequenze.stream()
                         .filter(sequenza -> esaminoSequenza(sequenza, coppieRegole))
-                        .mapToInt(sequenza -> {
-                            return valoreDimezzo(sequenza);
-                        })
+                        .mapToInt(sequenza -> valoreDimezzo(sequenza))
                         .sum();
 
-            // int somma = 0;
-            // for (List<Integer> rigaSequenza : sequenze){  //rigasequenza = 75 47 61 53 29
-            //     boolean sequenzaCorretta = esaminoSequenza(rigaSequenza, coppieRegole);   //controllo che la rigaSequenza sia valida
-            //     if (sequenzaCorretta){
-            //         somma += valoreDimezzo(rigaSequenza);    //sommo valore di mezzo
-            //     }
-            // }
-
             System.out.println(somma);
-
+ 
         } catch (Exception e) {
             // TODO: handle exception
         }

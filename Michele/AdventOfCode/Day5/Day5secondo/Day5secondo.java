@@ -22,20 +22,20 @@ public class Day5secondo{
                         sequenze.add(salvaSequenza(riga)); // leggo la riga e separo i numeri dalla ","
                     }
                 });     
-                
 
-            for (List<Integer> rigaSequenza : sequenze){  //rigasequenza = 75 47 61 53 29
-                boolean sequenzaCorretta = esaminoSequenza(rigaSequenza, coppieRegole);   //controllo che la rigaSequenza sia valida
-                if (!sequenzaCorretta){
-                    riordinaSequenza(); //----------
-                }
-            }
+            int somma = sequenze.stream()
+                        .filter(sequenza -> !esaminoSequenza(sequenza, coppieRegole))
+                        .map(seqSbagliata -> riordina(seqSbagliata))
+                        .mapToInt(seqCorretta -> valoreDimezzo(seqCorretta))
+                        .sum();
 
-
+            System.out.println(somma);
+ 
         } catch (Exception e) {
             // TODO: handle exception
         }
     }
+
 
     public static List<Integer> leggiCoppie(String riga){
         return Arrays.stream(riga.split("\\|"))
@@ -85,8 +85,12 @@ public class Day5secondo{
         return rigaSequenza.get(posizione);
     }
 
-    public static void riordinaSequenza(List<Integer> rigaSequenza, List<List<Integer>> coppieRegole){
-        
+    public static List<Integer> riordina(List<Integer> seqSbagliata, List<List<Integer>> coppieRegole){
+        for (int i=0; i < seqSbagliata.size(); i++){
+            while(!controlloRegole(seqSbagliata, coppieRegole, i)){
+                
+            }
+        }
     }
 
 }
