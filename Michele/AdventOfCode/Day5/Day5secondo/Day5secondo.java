@@ -8,34 +8,66 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Day5secondo{
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
         try {
             var src = new BufferedReader(new InputStreamReader(new FileInputStream("input5.txt")));
-            List<List<Integer>> coppieRegole = new ArrayList<>(); 
-            List<List<Integer>> sequenze = new ArrayList<>();
+
+            List<List<Integer>> regole = new ArrayList<>();   //potrebbe essere una lista di Pair (vai a vedere)
+            List<Integer> daSommare = new  ArrayList<>();
 
             src.lines()
                 .forEach(riga -> {
                     if(!riga.isEmpty() && riga.length() == 5){
-                        coppieRegole.add(leggiCoppie(riga));  //leggo la riga e divido i due numeri da "|"
+                        regole.add(leggiCoppie(riga));  //leggo la riga e divido i due numeri da "|"
                     }else if(!riga.isEmpty()){
-                        sequenze.add(salvaSequenza(riga)); // leggo la riga e separo i numeri dalla ","
+
+                        String[] sequenza = riga.split(",");
+                        List<Integer> seqNum = new ArrayList<>();
+                        for (String num : sequenza) {
+                            seqNum.add(Integer.parseInt(num));
+                        }
+                        
+                        boolean isCorretto = true;
+                        boolean isDaPrendere = false;
+                        do{
+                            isCorretto = true;
+                            for (int i=0; i < seqNum.size()-1; i++){
+                                int n1 = seqNum.get(i);
+                                int n2 = seqNum.get(i+1);
+                                for (List<Integer> coppia : regole){
+                                    if (coppia.get(0) == n2){
+                                        if (coppia.get(1) == n1){
+                                            int temp = n1;
+                                            seqNum.set(i, n2);
+                                            seqNum.set(i+1, n1);
+                                            isCorretto = false;
+                                            isDaPrendere = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }while(!isCorretto);
+                        if (isDaPrendere){
+                            daSommare.add(valoreDimezzo(seqNum));
+                        }
                     }
-                });     
+                });
 
-            int somma = sequenze.stream()
-                        .filter(sequenza -> !esaminoSequenza(sequenza, coppieRegole))
-                        .map(seqSbagliata -> riordina(seqSbagliata))
-                        .mapToInt(seqCorretta -> valoreDimezzo(seqCorretta))
-                        .sum();
+                int somma = 0;
+                for (int num : daSommare) {
+                    somma += num;
+                }
 
-            System.out.println(somma);
- 
+                System.out.println(somma);
+            
+
         } catch (Exception e) {
             // TODO: handle exception
         }
+        
     }
-
 
     public static List<Integer> leggiCoppie(String riga){
         return Arrays.stream(riga.split("\\|"))
@@ -43,54 +75,9 @@ public class Day5secondo{
                     .toList();
     }
 
-    public static List<Integer> salvaSequenza(String riga){
-        return Arrays.stream(riga.split(","))
-                    .map(Integer::parseInt)
-                    .toList();
-    }
-
-    public static boolean esaminoSequenza(List<Integer> rigaSequenza, List<List<Integer>> coppieRegole){
-        for (int i=0; i < rigaSequenza.size(); i++){
-            int numero = rigaSequenza.get(i);
-            List<Integer> tempRegole = regolePerNumero(numero, coppieRegole); //memorizzo le regole per il numero trovato
-            boolean controllo = controlloRegole(tempRegole, rigaSequenza, i); //verifico che non vengano infrante regole
-            if(!controllo){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static List<Integer> regolePerNumero(int numero, List<List<Integer>> coppieRegole){
-        List<Integer> tempRegole = new ArrayList<>();
-        for (List<Integer> coppia : coppieRegole){
-            if(coppia.get(0) == numero){
-                tempRegole.add(coppia.get(1));
-            }
-        }
-        return tempRegole;
-    }
-
-    public static boolean controlloRegole(List<Integer> tempRegole, List<Integer> rigaSequenza, int i){
-        for (int j=i; j>=0; j--){
-            if(tempRegole.contains(rigaSequenza.get(j))){
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static int valoreDimezzo(List<Integer> rigaSequenza){
         int posizione = rigaSequenza.size()/2;
         return rigaSequenza.get(posizione);
-    }
-
-    public static List<Integer> riordina(List<Integer> seqSbagliata, List<List<Integer>> coppieRegole){
-        for (int i=0; i < seqSbagliata.size(); i++){
-            while(!controlloRegole(seqSbagliata, coppieRegole, i)){
-                
-            }
-        }
     }
 
 }

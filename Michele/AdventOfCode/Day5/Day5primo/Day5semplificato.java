@@ -40,12 +40,12 @@ public class Day5semplificato{
                                         seqNum.set(i, n2);
                                         seqNum.set(i+1, temp);
                                         isCorretto = false;
-                                        return;
+                                        break;
                                     }
                                 }
                             }
                             if(!isCorretto){
-                                return;
+                                break;
                             };
                         }
                         if(isCorretto){
