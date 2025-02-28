@@ -1,3 +1,5 @@
+package frasi;
+
 public class frasi{
     public static void main (String[] args){
         String[] lista1 = {"albero", "computer", "sogno", "luce", "viaggio",

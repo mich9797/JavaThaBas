@@ -1,4 +1,4 @@
-package Michele.AdventOfCode.Day6.Day6primo;
+
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +7,7 @@ import java.util.List;
 
 public class GuardGallivant {
     public static void main(String[] args) throws IOException {
+
         final List<String> linee = Files.readAllLines(Paths.get("input6.txt"));
 
         final int riga = linee.size();
@@ -67,6 +68,7 @@ public class GuardGallivant {
     }
 
     public static void movePawn(Pawn pawn, char[][] matrix, Direction direction) {
+
         matrix[pawn.getX()][pawn.getY()] = 'X';
         pawn.move(direction);
     }

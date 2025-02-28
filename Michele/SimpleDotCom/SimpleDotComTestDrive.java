@@ -1,3 +1,7 @@
+package Michele.SimpleDotCom;
+
+import Michele.DotCom.GameHelper;
+
 import java.io.*;
 
 public class SimpleDotComTestDrive{
@@ -60,7 +64,7 @@ class SimpleDotCom{
 }
 
 
-class GameHelper {
+class GameHelpers {
   public String getUserInput(String prompt) {
      String inputLine = null;
      System.out.print(prompt + " ");

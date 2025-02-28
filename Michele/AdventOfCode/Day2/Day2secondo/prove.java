@@ -1,3 +1,5 @@
+package Michele.AdventOfCode.Day2.Day2secondo;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Gioco2secondo {
+class Gioco2secondo {
 
     public static void main(String[] args) {
         try {

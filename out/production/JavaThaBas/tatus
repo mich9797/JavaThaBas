@@ -1,0 +1,167 @@
+[33mcommit 8fdd4b9f3066c06c6abbe63bebdbbae4bab62620[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Mon Feb 17 12:43:03 2025 +0100
+
+    Add new files
+
+[33mcommit 42a074f6cbf83e36a939322dddcf7f78a51ff048[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Mon Feb 17 12:01:12 2025 +0100
+
+    Add new fiel
+
+[33mcommit 4f807923ea41c7ba7cad100140d9e602c6da829f[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Mon Feb 17 11:50:31 2025 +0100
+
+    Add new files
+
+[33mcommit 14af9fea8da946c5f97af97830edcad1d344676a[m
+Author: mich9797 <michele.tha97@gmail.com>
+Date:   Sun Feb 16 20:25:25 2025 +0100
+
+    SimpleDotCom finito
+
+[33mcommit 0d19f081e520b448bbbc2da746224fe72faae563[m
+Author: mich9797 <michele.tha97@gmail.com>
+Date:   Sun Feb 16 20:02:26 2025 +0100
+
+    esempio battaglia navale
+
+[33mcommit 3cd287ae4391e0358c0b295c8021a5b17ef1017e[m
+Author: mich9797 <michele.tha97@gmail.com>
+Date:   Sun Feb 16 18:53:07 2025 +0100
+
+    aggiunto esercizi clock e xcopy
+
+[33mcommit d22097b17a3fbc962d7934086d0787b7397bb036[m
+Author: mich9797 <michele.tha97@gmail.com>
+Date:   Sun Feb 16 18:28:26 2025 +0100
+
+    aggiunto gile Triangle
+
+[33mcommit 573fe3464223fa8be1e7738987094fba027813e6[m
+Author: mich9797 <michele.tha97@gmail.com>
+Date:   Sun Feb 16 18:05:33 2025 +0100
+
+    aggiunto file TestArray
+
+[33mcommit d201cc8daba000e4352516973d463e010f698426[m
+Author: michele2105 <mikytha97@gmail.com>
+Date:   Sun Feb 16 17:35:45 2025 +0100
+
+    aggiunto file hobbits
+
+[33mcommit 3cf36c928df77f5df5eff419cb1960118871a699[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 18:09:14 2025 +0100
+
+    add
+
+[33mcommit 6ab1499d97be0711e1dd44ac38ec6549cba90c94[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 18:06:53 2025 +0100
+
+    added book
+
+[33mcommit b3a96012eeb676077025496d03ff4155a968351e[m[33m ([m[1;33mtag: [m[1;33mn.1[m[33m)[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:34:53 2025 +0100
+
+    eliminato file base
+
+[33mcommit 938feb786d5bf08f3ce78d086fbdc70871a9662c[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:33:32 2025 +0100
+
+    spostato base
+
+[33mcommit 635855a4eaa2c2c1035e1d4fc2bb1fe372772ce3[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:32:42 2025 +0100
+
+    creato base
+
+[33mcommit b1dfe7f8c40e4c4c6f94d7a4565f3a87d049b85c[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:31:38 2025 +0100
+
+    deleted
+
+[33mcommit f89c687db49922c303691d84a58179eac34bb11e[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:30:58 2025 +0100
+
+    deleted
+
+[33mcommit cbab129d0ab55605cad9795711c2db6e6a3b8b61[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:29:45 2025 +0100
+
+    add new files
+
+[33mcommit f6a301272750357d15bb959bdb13cfc16a056746[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 17:08:46 2025 +0100
+
+    aggiunto roba
+
+[33mcommit 3b744de1d4cbcf0425e637554800bd17ab2cbf7d[m[33m ([m[1;33mtag: [m[1;33mn.2[m[33m)[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 16:53:36 2025 +0100
+
+    tolto commenti gamelauncher
+
+[33mcommit a431b43acba4534c6c23013f7ac3b0ba2099fa24[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 16:26:14 2025 +0100
+
+    inserito cartella con esercizi michele
+
+[33mcommit 2ab6de61160e57173c68a754d0db5b8bb6eb3d93[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 15:36:59 2025 +0100
+
+    provato a fare push di una cartella con all' interno un file class
+
+[33mcommit 6bcc0822b81db145dea8861c62f8992fc8e14d7e[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 15:29:42 2025 +0100
+
+    :new: ignore class files
+
+[33mcommit da84318e0a0fb4247177e0836e8cd5524d291faa[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 15:24:24 2025 +0100
+
+    rivisto commento
+
+[33mcommit 1d847479c669761dea351f5ce9d32fa6fe2c4d2f[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 15:18:25 2025 +0100
+
+    commento aggiornato
+
+[33mcommit e874cf9ca829d76b66cddb7c747f9a75d3c8d045[m
+Author: michele <michele.tha97@gmail.com>
+Date:   Fri Feb 14 15:07:25 2025 +0100
+
+    commentato
+
+[33mcommit 76dc1601305d9bab9fe9081c0de1f2182481a2dc[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 14:58:06 2025 +0100
+
+    Eliminated Es2
+
+[33mcommit d3295adb51b73ba3d4a91f8ebfaef90052c92f07[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 14:03:30 2025 +0100
+
+    Removed Es 1.java
+
+[33mcommit 90479a678e2f82f746fefa5bb5754cae66f008cf[m
+Author: Gabriele Basello <gabas2000@gmail.com>
+Date:   Fri Feb 14 13:47:49 2025 +0100
+
+    New java repositery for exercises

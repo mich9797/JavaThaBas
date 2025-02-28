@@ -1,3 +1,5 @@
+package Michele.AdventOfCode.Day1.Day1primo;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package Michele.AdventOfCode.Day6.Day6primo;
+
 
 import org.junit.jupiter.api.Test;
 

@@ -1,3 +1,5 @@
+package Michele.ADogExample;
+
 class Dog{
     String name;
     public static void main(String[] args) {

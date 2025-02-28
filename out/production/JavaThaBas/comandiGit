@@ -1,0 +1,79 @@
+Reference: puntatore di un commit
+
+Un commit può essere raggiungibile “direttamente” tramite un Reference oppure “indirettamente” tramite un commit padre
+
+Un Branch è una sequenza di commit.   Qualsiasi numero di branch possono riferirsi allo stesso commit 
+
+“master” viene definito come la main line del progetto
+
+“head” è una particolare reference, può indicare uno specifico commit oppure un intero ramo
+
+un “tag” è un nome collegato ad uno specifico commit  (e rimane sempre riferito a quello?)
+I tag possono contenere un id, orario, chi l’ha fatto o un messaggio       ***
+
+“remote”: nome puntatore verso un’altra repository.    Per convenzione “Origin” è la repository di partenza
+
+“remote branches” sono i rami della repository di partenza che abbiamo clonato. 
+
+“tracking branches” sono rami della nostra repository locale che sono direttamente collegati con i rami della repository originale    ??***  ( quindi le modifiche in locale vanno in automatico nella repository originale?)
+
+clone:   per clonare una repository esistente
+
+push:   per fare il push dei cambiamenti in locale verso la repository originale
+
+fetch:   per prendere gli ultimi cambiamenti dall’originale  (non fa merge) (quindi te li mostra solo??) ***
+
+pull:    fetch + merge:   degli ultimi cambiamenti dall’originale e fa il merge (con il tuo  repository in locale?)***
+          fetch + rebase:  crea un ramo con gli ultimi cambiamenti ?? ***
+________
+COMANDI
+
+git status  —> mostra cosa è cambiato nella Working area e cosa è caricato nella Staging		area pronto ad essere committato
+git add .  —> aggiungo le modifiche della Working area nella Staging Area.   se metto il (.) 		sto aggiungendo tutti i cambiamenti, altrimenti dovrei mettere il nome del file		 modificato 
+git commit -m” “ —> per fare commit e aggiungere un messaggio nel commit (indispensabile 		        per identificare a cosa si riferisce il commit
+git log  —>   vedo il workflow dei commit effettuati
+git show  —>  mi mostra il commit HEAD
+git show (id) —> mi mostra il commit con quell’ id
+git diff (id1)..(id2)  —>  vedo cosa è cambiato dal primo commit al secondo commit (fare 				attenzione che id2 sia il l’ultimo commit,  altrimenti vedo le modifiche 			all’incontrario)
+vi (nome_file)  —> creo o apro (se esiste già) un file
+** dentro vi :   I  —> per passare ad insert mode
+:x —> per chiudere e salvare le modifiche
+:q  —> per chiudere
+:q!  —>  per chiudere e ignorare le modifiche fatte e non salvate 
+git branch —-> vedo quali branch ci sono
+git branch (nome)  —> creo un nuovo branch di nome (nome)
+git branch -D (nome)  —>   elimino il branch con nome (nome)
+
+git checkout branchB
+git merge branchA       —>  per fare merge del branchA nel branchB
+
+git tag (my_tag)    —> per creare un tag nel commit corrente
+git tag -d (tag)  —> per cancellare un tag (non devo essere per forza sullo specifico commit			 con il tag ricercato
+
+git log --pretty=oneline   —-> per vedere i commit fatti ognuno su una 							sola riga
+git log --pretty=oneline --max-count=2
+git log --pretty=oneline --since='5 minutes ago'
+
+git log --pretty=oneline --until='5 minutes ago'
+git log --pretty=oneline --author=<your name>
+git log --pretty=oneline --all                                          altri tipi di visualizzazione
+
+cat (nomeFile) —> mi mostra il contenuto del file 
+
+git chekout (id commit)  —> torno alla situazione di quel specifico commit
+git checkout (tag) —> posso usare anche i tag per raggiungere un determinato commit
+git checkout master   —-> torno alla situazione del commit master 
+git reset HEAD (nomeFile) —> serve per resettare la staging area e tornare alla situazione di				 HEAD 
+git rest –hard (id/tag..)  —> resetta per tornare alla situazione che vogliamo, resettando					 anche la working area
+git commit –amend -m” “  —> per aggiornare le modifiche dell’ultimo commit senza avere				 come finele due commit separati ma solo uno
+git mv (nomeFile) (destinazione)   —> per spostare un file.    è già tutto pronto per essere					 committato
+
+esempio revert  —> modifico un file, faccio commit 1.   se faccio git revert (id commit 1) il 			revert mi applica le modifche fatte nel commit 1 ma al contrario, quindi 			torno indietro
+git log –online –graph –decorate –all —> per vedere i struttura grapho dei commit e relativi 						 branch
+.gitignore —- ci metti i file che non vuoi che finiscano nel commit 
+git stash —-> salva le modifiche non committate e ripristina lo stato all’ultimo commit (le			 modifiche non vengono perse ma rimangono salvate in memoria
+git stash pop —-> applica le modifiche che erano in memoria
+
+code Nomefile.java  ----> genero un file java 
+javac Nomefile.java  ----> compilo il file.java nel suo file.class
+java Nomefile   ----> avvio il mio programma 
