@@ -45,8 +45,8 @@ public class day4 {
                             break;
                         }
                         parola.append(matrice[x][y]);
-                        x += dx[d];
-                        y += dy[d];
+                            x += dx[d];
+                            y += dy[d];
                     }
             
                     if (parola.length() == target.length() && parola.toString().equals(target)) {
