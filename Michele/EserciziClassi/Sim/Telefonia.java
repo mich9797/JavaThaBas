@@ -8,32 +8,25 @@ import java.util.List;
 
 public class Telefonia {
     public static void main(String[] args){
-        Sim sim = new Sim("345460096", 12.50);
-        sim.stampaDatiSim();
-        System.out.println();
-        sim.aggiungiChiamata("3433433453", 45);
-        sim.aggiungiChiamata("ciao", 33);
-        sim.aggiungiChiamata("ciao", 377);     //il value della key "ciao" prima era 33 adesso è diventato 377
-        sim.aggiungiChiamata("34334333334", 32);
-
-        sim.stampaDatiSim();
-        System.out.println();
-        sim.getMinutiTot();
-
-        sim.minutiPerNumero("3433433333");
-
+        Sim sim1 = new Sim("345460096", 12.50);
+        sim1.aggiungiChiamata(new Chiamata("1234567890", 12));
+        sim1.aggiungiChiamata(new Chiamata("1234567890", 15));
+        sim1.aggiungiChiamata(new Chiamata("1111222233", 25));
+        sim1.stampaDatiSim();
+        sim1.chiamatePerNumero("1234567890");
+        sim1.getMinutiTot();
     }
 }
 
 class Sim{
     private String numero;
     private double credito;
-    private HashMap<String, Integer> chiamate;    //HashMap per una coppia di valori.. una Key e un Value
+    private List<Chiamata> chiamate;
 
     public Sim(String numero, double credito) {
         this.numero = numero;
         this.credito = credito;
-        this.chiamate = new HashMap<>();;
+        this.chiamate = new ArrayList<>();;
     }
 
     public String getNumero(){
@@ -44,36 +37,61 @@ class Sim{
         return this.credito;
     }
 
-    public void aggiungiChiamata(String cellulare, int minuti){
-        chiamate.put(cellulare, minuti);
+    public void aggiungiChiamata(Chiamata chiamata){
+        this.chiamate.add(chiamata);
     }
 
-    public HashMap<String, Integer> getChiamate(){
-        return chiamate;
+    public List<Chiamata> getChiamate(){
+        return this.chiamate;
     }
 
     public void getMinutiTot(){
         int tot = 0;
-        for (int min : getChiamate().values()){    //ciclo for su HashMap   .values() per indicare value    e .keyset() per indicare la key
-            tot += min;
+        for (Chiamata chiamata : getChiamate()){
+            tot += chiamata.getDurata();
         }
         System.out.println(tot);
     }
 
-    public void minutiPerNumero(String cellulare){
+    public void chiamatePerNumero(String cellulare){
         int cont = 0;
-        for (String cell : getChiamate().keySet()){
-            if(cell.equals(cellulare)){
+        int minuti = 0;
+        for (Chiamata chiamata : getChiamate()){
+            if(chiamata.getNumero().equals(cellulare)){
                 cont++;
+                minuti += chiamata.getDurata();
             }
         }
-        System.out.println("Le chiamate effettuate verso " + cellulare + "sono " + cont);
+        System.out.printf("Le chiamate effettuate verso " + cellulare + "sono %d per un totale di minuti di: %d",cont, minuti);
+        System.out.println();
     }
 
     public void stampaDatiSim(){
         System.out.println(getNumero());
         System.out.println(getCredito());
-        System.out.println(getChiamate());
+        int cont=0;
+        for (Chiamata chiamata : chiamate){
+            cont++;
+            System.out.printf("chiamata %d: " + chiamata.getNumero() + " di %d minuti", cont, chiamata.getDurata());
+            System.out.println();
+        }
+    }
+}
+
+class Chiamata{
+    String numero;
+    int durata;
+
+    public Chiamata(String numero, int durata){
+        this.numero = numero;
+        this.durata = durata;
     }
 
+    public int getDurata(){
+        return this.durata;
+    }
+
+    public String getNumero(){
+        return this.numero;
+    }
 }

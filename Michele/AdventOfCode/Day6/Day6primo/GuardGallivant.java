@@ -8,7 +8,7 @@ import java.util.List;
 public class GuardGallivant {
     public static void main(String[] args) throws IOException {
 
-        final List<String> linee = Files.readAllLines(Paths.get("input6.txt"));
+        final List<String> linee = Files.readAllLines(Paths.get("testinput.txt"));
 
         final int riga = linee.size();
         final int colonna = linee.get(0).length();
