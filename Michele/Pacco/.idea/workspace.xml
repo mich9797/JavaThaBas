@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ef97085-ce4d-4482-b0d1-036294b897b7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Telefonia/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Universita/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EserciziClassi/Universita/Universita.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2toSUOpj6tBl03TJFLYNxJkW5k9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Prova.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/Universita"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ef97085-ce4d-4482-b0d1-036294b897b7" name="Changes" comment="" />
+      <created>1741016949459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741016949459</updated>
+    </task>
+    <servers />
+  </component>
+</project>

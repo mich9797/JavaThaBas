@@ -1,19 +1,10 @@
-package Universita;
-//Classe universita con nome, sede (citta, indirizzo), insieme di studenti, insieme di corsi tenuti in essa,
-//        insieme di docenti. Progettare i seguenti metodi: costruttore che valorizza nome e sede; metodo aggiungi
-//        studente; metodo aggiungi corso; aggiungi docente; aggiungi frequenza di un corso da parte di uno studente;
-//        aggiungi docente ad un corso; metodo che restituisce il nome dell università; dato uno studente in ingresso
-//        verificare se appartiene a questa università; dato un corso in input verificare se è tenuto in quella
-//        università; numero di studenti che hanno seguito un determinato corso.
-
-import java.net.StandardSocketOptions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Universita {
-    private final String nome;
-    private final String sede;
+    private String nome;
+    private String sede;
     private List<Studente> studenti;
     private List<Docente> docenti;
     private List<Corso> corsi;
@@ -31,12 +22,20 @@ public class Universita {
         return this.nome;
     }
 
+    public String getSede(){
+        return this.sede;
+    }
+
     public List<Corso> getCorsi(){
         return this.corsi;
     }
 
     public List<Studente> getStudentiUni(){
         return this.studenti;
+    }
+
+    public List<Docente> getDocentiUni(){
+        return this.docenti;
     }
 
     public void aggiungiStudente(Studente studente){
@@ -101,72 +100,6 @@ public class Universita {
 
         ingegneria.aggiungiStudenteCorso(mik);
         ingegneria.aggiungiDocenteCorso(bruno);
-        System.out.println("Ci sono " + ingegneria.getStudentiCorso().size() + " studenti isctitti ad ingegneria");       //vedo quanti sono iscritti ad ingegneria
+        System.out.println("Ci sono " + ingegneria.getStudentiIscritti().size() + " studenti isctitti ad ingegneria");       //vedo quanti sono iscritti ad ingegneria
     }
-}
-
-class Persona{
-    String nome;
-    String cognome;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-}
-
-class Studente extends Persona{
-    private String matricola;
-
-    public Studente(String nome, String cognome, String matricola){
-        this.nome = nome;
-        this.cognome = cognome;
-        this.matricola = matricola;
-    }
-
-    public String getMatricola() {
-        return this.matricola;
-    }
-}
-
-class Docente extends Persona{
-    private String codiceDocente;
-
-    public Docente(String nome, String cognome, String codiceDocente){
-        this.nome = nome;
-        this.cognome = cognome;
-        this.codiceDocente = codiceDocente;
-    }
-}
-
-class Corso{
-    private String nomeCorso;
-    private List<Studente> studentiIscritti;
-    private List<Docente> docentiCroso;
-
-    public Corso(String nomeCorso){
-        this.nomeCorso = nomeCorso;
-        this.studentiIscritti = new ArrayList<>();
-        this.docentiCroso = new ArrayList<>();
-    }
-
-    public String getNomeCorso(){
-        return this.nomeCorso;
-    }
-
-    public void aggiungiDocenteCorso(Docente docente){
-        this.docentiCroso.add(docente);
-    }
-
-    public void aggiungiStudenteCorso(Studente studente){
-        this.studentiIscritti.add(studente);
-    }
-
-    public List<Studente> getStudentiCorso(){
-        return this.studentiIscritti;
-    }
-
 }
