@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class TestDirection {
+public class DirectionTest {
     @Test
     public void shouldReturnNextDirection(){
         var dir = GuardGallivant.Direction.UP;

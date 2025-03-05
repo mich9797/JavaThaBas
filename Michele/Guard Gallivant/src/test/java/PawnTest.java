@@ -2,10 +2,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestPawn{
+public class PawnTest {
 
     @Test
-    public void testMoveUp() {
+    public void shouldReturnPawnMovedUp() {
         GuardGallivant.Pawn pawn = new GuardGallivant.Pawn();
         pawn.setX(5);
         pawn.setY(5);

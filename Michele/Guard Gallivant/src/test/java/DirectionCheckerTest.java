@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestDirectionChecker {
+public class DirectionCheckerTest {
 
     @Test
     public void shouldReturnExitIfDirectionBringsOutOfMatrix() {
@@ -14,5 +14,4 @@ public class TestDirectionChecker {
         final var sut = new GuardGallivant.DirectionChecker('a', 'a');
         assertEquals(GuardGallivant.Move.EXIT, sut.tryDirection(GuardGallivant.Direction.UP, 0, 0, matrix));
     }
-
 }

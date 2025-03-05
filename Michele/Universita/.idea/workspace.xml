@@ -5,46 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="737b47bf-3d25-4372-933f-84a781c7008e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/.mvn/jvm.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/.mvn/maven.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/src/site/site.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.mvn/jvm.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/.mvn/maven.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/src/site/site.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pacco/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/.mvn/jvm.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/.mvn/maven.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/src/site/site.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Telefonia/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/jvm.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/maven.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/site/site.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EserciziClassi/Universita/Universita.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/DirectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestDirectionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/DirectionCheckerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/PawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -76,11 +42,21 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit3",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/Guard Gallivant"
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/EserciziClassi/ContoCorrente"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

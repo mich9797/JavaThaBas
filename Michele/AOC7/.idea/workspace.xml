@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1741bae-4caa-4765-a404-0333af7ff28a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC8/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EserciziClassi/ContoCorrente/ContoCorrente.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EserciziClassi/ContoCorrente/out/production/ContoCorrente/ContoCorrente/ContoCorrente.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/DirectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestDirectionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/DirectionCheckerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/TestPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guard Gallivant/src/test/java/PawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Telefonia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Telefonia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Universita/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Universita/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Universita/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Universita/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit3 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2trDTwAFoi7Vaf26sqpS5Z2dkj5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AOC7.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit3",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC7"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1741bae-4caa-4765-a404-0333af7ff28a" name="Changes" comment="" />
+      <created>1741101313210</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741101313210</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
