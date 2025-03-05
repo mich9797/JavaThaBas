@@ -12,8 +12,11 @@ public class AOC9 {
         //int b = Character.getNumericValue(stringa.charAt(0));
 
         StringBuilder stringaCostruita = compilaStringa(stringa);
-
         System.out.println(stringaCostruita);
+
+        ordinaStringa(stringaCostruita);
+        System.out.println(stringaCostruita);
+
 
     }
 
@@ -38,5 +41,28 @@ public class AOC9 {
             }
         }
         return stringaFinale;
+    }
+
+    public static void ordinaStringa(StringBuilder stringa){
+        for (int i=0; i < stringa.length(); i++){
+            if(stringa.charAt(i) == '.'){
+                int idx = recuperaPosizioneUltimoNum(stringa);
+                if ( idx <= i){
+                    break;
+                }
+                char num = stringa.charAt(idx);
+                stringa.setCharAt(idx, stringa.charAt(i));
+                stringa.setCharAt(i, num);
+            }
+        }
+    }
+
+    public static int recuperaPosizioneUltimoNum(StringBuilder stringa){
+        for (int i=stringa.length()-1; i >= 0; i--){
+            if(stringa.charAt(i) != '.'){
+                return i;
+            }
+        }
+        return 0;
     }
 }
