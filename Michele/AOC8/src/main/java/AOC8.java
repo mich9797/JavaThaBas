@@ -17,7 +17,7 @@ public class AOC8 {
             }
         }
 
-        for (int i=0; i < tabella.length; i++){
+        for (int i=0; i < tabella.length; i++){         //controllo coppie e setto antinodi e #
             for (int j=0; j < tabella[0].length; j++){
                 if (tabella[i][j].getSimbolo() != '.' && tabella[i][j].getSimbolo() != '#' ){
                     cercoNellaTabella(tabella[i][j].getSimbolo(), tabella, j, i);
@@ -25,17 +25,7 @@ public class AOC8 {
             }
         }
 
-        int antinodiTot = 0;
-
-        for (int i=0; i < righe; i++){
-            for (int j=0; j<colonne; j++){
-                if (tabella[i][j].getAntinode() == 1){
-                    antinodiTot++;
-                }
-            }
-        }
-
-        System.out.println(antinodiTot);
+        System.out.println(contaAntinode(tabella));
     }
 
     public static void cercoNellaTabella(char simboloDaTrovare, Coppia[][] tabella, int x, int y){
@@ -62,5 +52,18 @@ public class AOC8 {
         if (tabella[y][x].getSimbolo() == '.') {
             tabella[y][x].setSimbolo('#');
         }
+    }
+
+    public static int contaAntinode(Coppia[][] tabella){
+        int antinodiTot = 0;
+
+        for (int i=0; i < tabella.length; i++){
+            for (int j=0; j < tabella[0].length; j++){
+                if (tabella[i][j].getAntinode() == 1){
+                    antinodiTot++;
+                }
+            }
+        }
+        return antinodiTot;
     }
 }
