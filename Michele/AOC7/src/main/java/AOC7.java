@@ -1,11 +1,27 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AOC7 {
     public static void main(String[] args) {
         var input = AOC7.class.getResourceAsStream("input");
         final List<String> linee = new BufferedReader(new InputStreamReader(input)).lines().toList();
+
+        long calcolo = linee.stream()
+                .mapToLong(riga -> {
+                    long valoreFinale = valoreFinale(riga); //numero che dovrei ottenere
+                    int[] numeri = prendiNumeri(riga);  // array con i numeri che devo usare
+
+                    if (isRigaValid(valoreFinale, numeri, 0, numeri[0])){
+                        return valoreFinale;
+                    }else{
+                        return 0;
+                    }
+                })
+                .sum();
+
+        System.out.println(calcolo);
 
         long sommaRigheValide = 0;
 
