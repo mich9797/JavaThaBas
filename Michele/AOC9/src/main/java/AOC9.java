@@ -23,8 +23,8 @@ public class AOC9 {
         boolean scriviId = true;
         List<Integer> codice = new ArrayList<>();
 
-        for (int numeroNellaStringa=0; numeroNellaStringa < stringa.length(); numeroNellaStringa++){
-            int ripetizioni = Character.getNumericValue(stringa.charAt(numeroNellaStringa));
+        for (int idx=0; idx < stringa.length(); idx++){
+            int ripetizioni = Character.getNumericValue(stringa.charAt(idx));
             if(scriviId){
                 for (int i=0; i < ripetizioni; i++){
                     codice.add(id);       //ripeto l'id n volte
