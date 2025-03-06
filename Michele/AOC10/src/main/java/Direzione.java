@@ -12,7 +12,7 @@ public enum Direzione {
         this.y = y;
     }
 
-    public static Direzione getNextCW(Direzione corrente) {
+    public static Direzione getNextDirezione(Direzione corrente) {
         return switch (corrente) {
             case UP -> RIGHT;
             case RIGHT -> DOWN;
