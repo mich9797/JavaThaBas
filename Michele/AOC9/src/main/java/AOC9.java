@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class AOC9 {
@@ -8,61 +10,69 @@ public class AOC9 {
         InputStream input = AOC9.class.getResourceAsStream("input");
         final String stringa = new BufferedReader(new InputStreamReader(input)).lines().collect(Collectors.joining());
 
-        //int a = Integer.parseInt(String.valueOf(stringa.charAt(0)));
-        //int b = Character.getNumericValue(stringa.charAt(0));
+        List<Integer> codice = compilaCodice(stringa);
 
-        StringBuilder stringaCostruita = compilaStringa(stringa);
-        System.out.println(stringaCostruita);
+        ordinaCodice(codice);
 
-        ordinaStringa(stringaCostruita);
-        System.out.println(stringaCostruita);
-
+        System.out.println(calcolaTot(codice));
 
     }
 
-    public static StringBuilder compilaStringa(String stringa){
+    public static List<Integer> compilaCodice(String stringa){
         int id = 0;
         boolean scriviId = true;
-        StringBuilder stringaFinale = new StringBuilder();
+        List<Integer> codice = new ArrayList<>();
 
         for (int numeroNellaStringa=0; numeroNellaStringa < stringa.length(); numeroNellaStringa++){
             int ripetizioni = Character.getNumericValue(stringa.charAt(numeroNellaStringa));
             if(scriviId){
                 for (int i=0; i < ripetizioni; i++){
-                    stringaFinale.append(id);       //ripeto l'id n volte
+                    codice.add(id);       //ripeto l'id n volte
                 }
                 id++;
                 scriviId = false;
             }else {
                 for (int i=0; i < ripetizioni; i++){
-                    stringaFinale.append('.');      //ripeto . n volte
+                    codice.add(-1);      //ripeto . n volte
                 }
                 scriviId = true;
             }
         }
-        return stringaFinale;
+        return codice;
     }
 
-    public static void ordinaStringa(StringBuilder stringa){
-        for (int i=0; i < stringa.length(); i++){
-            if(stringa.charAt(i) == '.'){
-                int idx = recuperaPosizioneUltimoNum(stringa);
+    public static void ordinaCodice(List<Integer> codice){
+        for (int i=0; i < codice.size(); i++){
+            if(codice.get(i) == -1){
+                int idx = recuperaPosizioneUltimoNum(codice);
                 if ( idx <= i){
                     break;
                 }
-                char num = stringa.charAt(idx);
-                stringa.setCharAt(idx, stringa.charAt(i));
-                stringa.setCharAt(i, num);
+                int num = codice.get(idx);
+                codice.set(idx, codice.get(i));
+                codice.set(i, num);
             }
         }
     }
 
-    public static int recuperaPosizioneUltimoNum(StringBuilder stringa){
-        for (int i=stringa.length()-1; i >= 0; i--){
-            if(stringa.charAt(i) != '.'){
+    public static int recuperaPosizioneUltimoNum(List<Integer> codice){
+        for (int i=codice.size()-1; i >= 0; i--){
+            if(codice.get(i) != -1){
                 return i;
             }
         }
-        return 0;
+        return -1;
+    }
+
+    public static long calcolaTot(List<Integer> codice){
+        long tot = 0;
+        for (int i=0; i < codice.size(); i++){
+            if(codice.get(i) != -1){
+                tot += (codice.get(i)*i);
+            }else {
+                break;
+            }
+        }
+        return tot;
     }
 }
