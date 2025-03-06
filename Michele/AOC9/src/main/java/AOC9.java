@@ -15,7 +15,6 @@ public class AOC9 {
         ordinaCodice(codice);
 
         System.out.println(calcolaTot(codice));
-
     }
 
     public static List<Integer> compilaCodice(String stringa){
@@ -24,7 +23,7 @@ public class AOC9 {
         List<Integer> codice = new ArrayList<>();
 
         for (int idx=0; idx < stringa.length(); idx++){
-            int ripetizioni = Character.getNumericValue(stringa.charAt(idx));
+            int ripetizioni = Character.getNumericValue(stringa.charAt(idx)); //per gestire il carattere prelevato come un numero intero
             if(scriviId){
                 for (int i=0; i < ripetizioni; i++){
                     codice.add(id);       //ripeto l'id n volte

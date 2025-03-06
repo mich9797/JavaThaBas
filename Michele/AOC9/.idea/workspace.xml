@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c63934-393e-416a-aa18-4238ed6bf71c" name="Changes" comment="" />
+    <list default="true" id="14c63934-393e-416a-aa18-4238ed6bf71c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../AOC7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC7/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AOC9.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AOC9.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +41,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC7"
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC9"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
