@@ -8,7 +8,7 @@ public class AOC7 {
         var input = AOC7.class.getResourceAsStream("input");
         final List<String> linee = new BufferedReader(new InputStreamReader(input)).lines().toList();
 
-        long calcolo = linee.stream()
+        long sommaDelleRigheValide = linee.stream()
                 .mapToLong(riga -> {
                     long valoreFinale = valoreFinale(riga); //numero che dovrei ottenere
                     int[] numeri = prendiNumeri(riga);  // array con i numeri che devo usare
@@ -21,19 +21,19 @@ public class AOC7 {
                 })
                 .sum();
 
-        System.out.println(calcolo);
+        System.out.println(sommaDelleRigheValide);
 
-        long sommaRigheValide = 0;
+        //long sommaRigheValide = 0;
 
-        for (String riga : linee){
-            long valoreFinale = valoreFinale(riga); //numero che dovrei ottenere
-            int[] numeri = prendiNumeri(riga);  // array con i numeri che devo usare
-
-            if(isRigaValid(valoreFinale, numeri, 0, numeri[0])) {
-                sommaRigheValide += valoreFinale;
-            }
-        }
-        System.out.println(sommaRigheValide);
+        //for (String riga : linee){
+        //    long valoreFinale = valoreFinale(riga); //numero che dovrei ottenere
+        //    int[] numeri = prendiNumeri(riga);  // array con i numeri che devo usare
+        //
+        //    if(isRigaValid(valoreFinale, numeri, 0, numeri[0])) {
+        //        sommaRigheValide += valoreFinale;
+        //    }
+        //}
+        //System.out.println(sommaRigheValide);
     }
 
     public static boolean isRigaValid(long valoreFinale, int[] numeri, int index, long tot){
