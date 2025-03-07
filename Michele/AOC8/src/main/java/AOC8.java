@@ -20,7 +20,8 @@ public class AOC8 {
         for (int i=0; i < tabella.length; i++){         //controllo coppie e setto antinodi e #
             for (int j=0; j < tabella[0].length; j++){
                 if (tabella[i][j].getSimbolo() != '.' && tabella[i][j].getSimbolo() != '#' ){
-                    cercoNellaTabella(tabella[i][j].getSimbolo(), tabella, j, i);
+                    Posizione pos = new Posizione(i,j);
+                    cercoNellaTabella(tabella[i][j].getSimbolo(), tabella, pos);
                 }
             }
         }
@@ -28,18 +29,21 @@ public class AOC8 {
         System.out.println(contaAntinode(tabella));
     }
 
-    public static void cercoNellaTabella(char simboloDaTrovare, Coppia[][] tabella, int x, int y){
-        for (int i=y; i < tabella.length; i++){
+    public static void cercoNellaTabella(char simboloDaTrovare, Coppia[][] tabella, Posizione pos){
+        for (int i=pos.getX(); i < tabella.length; i++){
             for (int j=0; j<tabella[i].length; j++){
-                if (i != y && j != x) {
+                if (i != pos.getX() && j != pos.getY()) {
                     if (tabella[i][j].getSimbolo() == simboloDaTrovare) {
-                        int distX = j - x;
-                        int distY = i - y;
-                        if ((x - distX) >= 0 && (x - distX) < tabella[0].length && (y - distY) >= 0 && (y - distY) < tabella.length) {  //controllo se esiste la posizione in tabella
-                            settoAntinodo(tabella, (x - distX), (y - distY));
+                        Posizione pos2 = new Posizione(i,j); //secondo simbolo trovato
+                        int distX = i - pos.getX();
+                        int distY = j - pos.getY();
+                        Posizione antinode1 = new Posizione((pos.getX() - distX), (pos.getY() - distY));  //salvo le possibili posizioni degli antinode
+                        Posizione antinode2 = new Posizione((pos2.getX() + distX), (pos2.getY() + distY));
+                        if (esistePos(tabella, antinode1)) {  //controllo se esiste la posizione in tabella
+                            settoAntinodo(tabella, antinode1);
                         }
-                        if ((j + distX) < tabella[0].length && (j + distX) >= 0 && (i + distY) < tabella.length && (i + distY) >= 0) {   //controllo se esiste posizione in tabella
-                            settoAntinodo(tabella, (j + distX), (i + distY));
+                        if (esistePos(tabella, antinode2)) {   //controllo se esiste posizione in tabella
+                            settoAntinodo(tabella, antinode2);
                         }
                     }
                 }
@@ -47,10 +51,17 @@ public class AOC8 {
         }
     }
 
-    public static void settoAntinodo(Coppia[][] tabella, int x, int y) {
-        tabella[y][x].setAntinode(1);
-        if (tabella[y][x].getSimbolo() == '.') {
-            tabella[y][x].setSimbolo('#');
+    public static boolean esistePos(Coppia[][] tabella, Posizione pos){
+        if(pos.getX() < 0 || pos.getX() >= tabella.length || pos.getY() < 0 || pos.getY() >= tabella[0].length){
+            return false;
+        }
+        return true;
+    }
+
+    public static void settoAntinodo(Coppia[][] tabella, Posizione pos) {
+        tabella[pos.getX()][pos.getY()].setAntinode(1);
+        if (tabella[pos.getX()][pos.getY()].getSimbolo() == '.') {
+            tabella[pos.getX()][pos.getY()].setSimbolo('#');
         }
     }
 
