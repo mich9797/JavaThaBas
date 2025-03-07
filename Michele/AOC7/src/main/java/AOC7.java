@@ -21,6 +21,7 @@ public class AOC7 {
                         return 0;
                     }
                 })
+                .filter(num -> num != 0)
                 .sum();
 
         System.out.println(sommaDelleRigheValide);
