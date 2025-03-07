@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class AOC9 {
     public static void main(String[] args){
@@ -54,24 +55,39 @@ public class AOC9 {
         }
     }
 
+    //public static int recuperaPosizioneUltimoNumS(List<Integer> codice){
+    //    for (int i=codice.size()-1; i >= 0; i--){
+    //        if(codice.get(i) != -1){
+    //            return i;
+    //        }
+    //    }
+    //    return -1;
+    //}
+
     public static int recuperaPosizioneUltimoNum(List<Integer> codice){
-        for (int i=codice.size()-1; i >= 0; i--){
-            if(codice.get(i) != -1){
-                return i;
-            }
-        }
-        return -1;
+        return IntStream.range(0, codice.size())
+                .map(i -> codice.size() - 1 -i)  //lo faccio perchè devo partire a leggere dal fondo della lista
+                .filter(i -> codice.get(i) != -1)
+                .findFirst()
+                .orElse(-1);
     }
 
+    //public static long calcolaTot(List<Integer> codice){
+    //    long tot = 0;
+    //    for (int i=0; i < codice.size(); i++){
+    //        if(codice.get(i) != -1){
+    //            tot += (codice.get(i)*i);
+    //        }else {
+    //            break;
+    //        }
+    //    }
+    //    return tot;
+    //}
+
     public static long calcolaTot(List<Integer> codice){
-        long tot = 0;
-        for (int i=0; i < codice.size(); i++){
-            if(codice.get(i) != -1){
-                tot += (codice.get(i)*i);
-            }else {
-                break;
-            }
-        }
-        return tot;
+        return IntStream.range(0, codice.size())
+                .takeWhile(i -> codice.get(i) != -1)
+                .mapToLong(i -> codice.get(i)*i)
+                .sum();
     }
 }
