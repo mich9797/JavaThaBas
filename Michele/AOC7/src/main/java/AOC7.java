@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AOC7 {
     public static void main(String[] args) {
@@ -52,20 +54,33 @@ public class AOC7 {
         return false;
     }
 
+    //public static long valoreFinale(String riga){
+    //    String[] separaRiga = riga.split(": ");
+    //    long valoreFinale = Long.parseLong(separaRiga[0]);
+    //    return valoreFinale;
+    //}
+
     public static long valoreFinale(String riga){
-        String[] separaRiga = riga.split(": ");
-        long valoreFinale = Long.parseLong(separaRiga[0]);
-        return valoreFinale;
+        return Arrays.stream(riga.split(": "))
+                .findFirst()
+                .map(Long::parseLong)
+                .orElse(0L);
     }
+
+    //public static int[] prendiNumeri(String riga){
+    //    String[] separaRiga = riga.split(": ");
+    //    String[] rigaNumeri = separaRiga[1].split(" ");
+    //    int[] numeri = new int[rigaNumeri.length];  // array con i numeri che devo usare
+    //    for (int i = 0; i < rigaNumeri.length; i++){
+    //        numeri[i] = Integer.parseInt(rigaNumeri[i]);
+    //    }
+    //    return numeri;
+    //}
 
     public static int[] prendiNumeri(String riga){
-        String[] separaRiga = riga.split(": ");
-        String[] rigaNumeri = separaRiga[1].split(" ");
-        int[] numeri = new int[rigaNumeri.length];  // array con i numeri che devo usare
-        for (int i = 0; i < rigaNumeri.length; i++){
-            numeri[i] = Integer.parseInt(rigaNumeri[i]);
-        }
-        return numeri;
-    }
+        return Arrays.stream(riga.split(": ")[1].split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
+    }
 }

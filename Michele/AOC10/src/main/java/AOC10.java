@@ -12,7 +12,6 @@ public class AOC10 {
         int colonne = linee.get(0).length();
         int[][] matrice = new int[righe][colonne];
 
-
         for (int i=0; i < righe; i++){
             for (int j=0; j < colonne; j++){
                 matrice[i][j] = Character.getNumericValue(linee.get(i).charAt(j));
