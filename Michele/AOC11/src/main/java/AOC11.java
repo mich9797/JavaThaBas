@@ -8,41 +8,39 @@ import java.util.stream.Collectors;
 public class AOC11 {
     public static void main(String[] args) {
         var input = AOC11.class.getResourceAsStream("input");
-        List<String> lista = new BufferedReader(new InputStreamReader(input)).lines().toList();
-
-        List<Long> numLista = lista.stream().flatMap(riga -> Arrays.stream(riga.split(" ")))
+        List<Long> numbers = new BufferedReader(new InputStreamReader(input)).lines().flatMap(riga -> Arrays.stream(riga.split(" ")))
                 .map(Long::parseLong)
                 .collect(Collectors.toList());
 
         for (int i=0; i < 25; i++){
-            rules(numLista);
+            rules(numbers);
         }
 
-        System.out.println(numLista.size());
+        System.out.println(numbers.size());
     }
 
-    public static void rules(List<Long> lista){
-        for( int i=0; i < lista.size(); i++){
+    public static void rules(List<Long> numbers){
+        for( int i=0; i < numbers.size(); i++){
             long condition;
-            if (Long.toString(lista.get(i)).length() %2 == 0){
+            if (Long.toString(numbers.get(i)).length() %2 == 0){
                 condition = -1;
             }else {
-                condition = lista.get(i);
+                condition = numbers.get(i);
             }
             switch ((int) condition){
                 case 0:
-                    lista.set(i , 1L);
+                    numbers.set(i , 1L);
                     break;
                 case -1:
-                    int half = Long.toString(lista.get(i)).length() / 2;
-                    long num1 = Long.parseLong(Long.toString(lista.get(i)).substring(0,half));
-                    long num2 = Long.parseLong(Long.toString(lista.get(i)).substring(half));
-                    lista.add(i, num1);
-                    lista.set(i+1, num2);
+                    int half = Long.toString(numbers.get(i)).length() / 2;
+                    long num1 = Long.parseLong(Long.toString(numbers.get(i)).substring(0,half));
+                    long num2 = Long.parseLong(Long.toString(numbers.get(i)).substring(half));
+                    numbers.add(i, num1);
+                    numbers.set(i+1, num2);
                     i++;
                     break;
                 default:
-                    lista.set(i, lista.get(i)*2024);
+                    numbers.set(i, numbers.get(i)*2024);
             }
         }
     }
