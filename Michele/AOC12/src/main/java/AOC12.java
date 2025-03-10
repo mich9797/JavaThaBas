@@ -20,8 +20,15 @@ public class AOC12 {
             System.out.println();
         }
 
-        Position pos = new Position(0,0);
-        System.out.println(areaFigura(matrice, pos));
+        for (int i=0; i < righe; i++){
+            for (int j=0; j < colonne; j++){
+                if (matrice[i][j].getVisitato() != 1){
+                    System.out.println(areaFigura(matrice, new Position(i,j)));
+                }
+            }
+        }
+
+
 
     }
 
@@ -34,10 +41,6 @@ public class AOC12 {
     }
 
     public static int areaFigura(Plant[][] matrice, Position pos) {
-        if (!daContare(matrice, pos)){
-            return 0;
-        }
-
         matrice[pos.getX()][pos.getY()].setVisitato(1);
         int area = 1;
         char valoreCorrente = matrice[pos.getX()][pos.getY()].getValore();
