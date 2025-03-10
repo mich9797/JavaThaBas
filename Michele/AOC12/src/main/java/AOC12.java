@@ -21,7 +21,7 @@ public class AOC12 {
         }
 
         Position pos = new Position(0,0);
-        System.out.println(areaFigura(matrice, pos, Direction.UP));
+        System.out.println(areaFigura(matrice, pos));
 
     }
 
@@ -33,43 +33,21 @@ public class AOC12 {
         }
     }
 
-    public static int areaFigura(Plant[][] matrice, Position pos, Direction dir){ //da riformulare
-        int area = 0;
-        switch (dir){
-            case UP:
-                Position nuovaPos = new Position((pos.getX() + dir.x), (pos.getY() + dir.y));
-                if (daContare(matrice, nuovaPos) && matrice[pos.getX()][pos.getY()].getValore() == matrice[nuovaPos.getX()][nuovaPos.getY()].getValore()){
-                    matrice[pos.getX()][pos.getY()].setVisitato(1);
-                    area += areaFigura(matrice, nuovaPos, Direction.UP);
-                }
-                area += areaFigura(matrice, pos, Direction.getNextDirezione(dir));
-                break;
-            case RIGHT:
-                Position nuovaPos2 = new Position((pos.getX() + dir.x), (pos.getY() + dir.y));
-                if (daContare(matrice, nuovaPos2) && matrice[pos.getX()][pos.getY()].getValore() == matrice[nuovaPos2.getX()][nuovaPos2.getY()].getValore()){
-                    matrice[pos.getX()][pos.getY()].setVisitato(1);
-                    area += areaFigura(matrice, nuovaPos2, Direction.UP);
-                }
-                area += areaFigura(matrice, pos, Direction.getNextDirezione(dir));
-                break;
-            case DOWN:
-                Position nuovaPos3 = new Position((pos.getX() + dir.x), (pos.getY() + dir.y));
-                if (daContare(matrice, nuovaPos3) && matrice[pos.getX()][pos.getY()].getValore() == matrice[nuovaPos3.getX()][nuovaPos3.getY()].getValore()){
-                    matrice[pos.getX()][pos.getY()].setVisitato(1);
-                    area += areaFigura(matrice, nuovaPos3, Direction.UP);
-                }
-                area += areaFigura(matrice, pos, Direction.getNextDirezione(dir));
-                break;
-            default:
-                Position nuovaPos4 = new Position((pos.getX() + dir.x), (pos.getY() + dir.y));
-                if (daContare(matrice, nuovaPos4) && matrice[pos.getX()][pos.getY()].getValore() == matrice[nuovaPos4.getX()][nuovaPos4.getY()].getValore()){
-                    area += areaFigura(matrice, nuovaPos4, Direction.UP);
-                }else {
-                    matrice[pos.getX()][pos.getY()].setVisitato(1);
-                    return 1;
-                }
+    public static int areaFigura(Plant[][] matrice, Position pos) {
+        if (!daContare(matrice, pos)){
+            return 0;
+        }
+
+        matrice[pos.getX()][pos.getY()].setVisitato(1);
+        int area = 1;
+        char valoreCorrente = matrice[pos.getX()][pos.getY()].getValore();
+
+        for (Direction dir : Direction.values()) {
+            Position nuovaPos = new Position(pos.getX() + dir.x, pos.getY() + dir.y);
+            if (daContare(matrice, nuovaPos) && matrice[nuovaPos.getX()][nuovaPos.getY()].getValore() == valoreCorrente) {
+                area += areaFigura(matrice, nuovaPos);
+            }
         }
         return area;
     }
-
 }
