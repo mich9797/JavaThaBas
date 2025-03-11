@@ -7,16 +7,16 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        var input = advent.day8.Main.class.getResourceAsStream("input.txt");
-        if(input == null){
+        var input = Main.class.getResourceAsStream("input.txt");
+        if (input == null) {
             throw new IllegalArgumentException("Input file not found");
         }
-        final List<String> lines = new BufferedReader(new InputStreamReader(input)).lines().toList();
-        char[][] grid = lines.stream().map(String::toCharArray).toArray(char[][]::new);
-        Map<Character, List<int[]>> antennas = trovaAntenne.trovaAntenne(grid);
-        int result = trovaAntinodi.trovaAntinodes(antennas, grid.length, grid[0].length);
+        List<String> lines = new BufferedReader(new InputStreamReader(input)).lines().toList();
+        char[][] grid = lines.stream()
+                .map(String::toCharArray)
+                .toArray(char[][]::new);
+        Map<Character, List<int[]>> antennas = trovaAntenne.findAntennas(grid);
+        int result = trovaAntinodi.trovaAntinodi(antennas, grid.length, grid[0].length);
         System.out.println(result);
     }
-
 }
-
