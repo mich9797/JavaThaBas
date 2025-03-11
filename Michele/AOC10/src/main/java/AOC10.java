@@ -37,7 +37,7 @@ public class AOC10 {
 
     public static int cercaPercorsi(int[][] matrice, Posizione pos, int num, Direzione dir, List<Posizione> lista){
         if (matrice[pos.getx()][pos.gety()] == 9){
-            if (coordinataGiaVisitata(lista, pos)){
+            if (pos.coordinataGiaVisitata(lista)){
                 return 0;
             }
             lista.add(pos);
@@ -64,14 +64,4 @@ public class AOC10 {
         }
         return false;
     }
-
-    public static boolean coordinataGiaVisitata(List<Posizione> lista, Posizione pos){
-        for (Posizione posizione : lista){
-            if (pos.getx() == posizione.getx() && pos.gety() == posizione.gety()){
-                return true;
-            }
-        }
-        return false;
-    }
-
 }

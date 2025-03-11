@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Posizione {
     private int x;
     private int y;
@@ -23,8 +25,12 @@ public class Posizione {
         this.y = y;
     }
 
-    public void sposta(Direzione direzione){
-        this.x += direzione.x;
-        this.y += direzione.y;
+    public boolean coordinataGiaVisitata(List<Posizione> lista){
+        for (Posizione posizione : lista){
+            if (this.x == posizione.getx() && this.y == posizione.gety()){
+                return true;
+            }
+        }
+        return false;
     }
 }
