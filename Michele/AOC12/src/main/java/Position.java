@@ -22,5 +22,12 @@ public class Position {
         this.x = x;
         this.y = y;
     }
-    
+
+    public boolean esiste(Plant[][] matrice){
+        if (this.x < 0 || this.x >= matrice.length || this.y < 0 || this.y >= matrice[0].length){
+            return false;
+        }else {
+            return true;
+        }
+    }
 }

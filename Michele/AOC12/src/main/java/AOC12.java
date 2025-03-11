@@ -56,7 +56,7 @@ public class AOC12 {
 
         for (Direction dir : Direction.values()) {
             Position nuovaPos = new Position(pos.getX() + dir.x, pos.getY() + dir.y);
-            if (esiste(matrice, nuovaPos) && matrice[nuovaPos.getX()][nuovaPos.getY()].getVisitato() != 1 && matrice[nuovaPos.getX()][nuovaPos.getY()].getValore() == valoreCorrente) {
+            if (nuovaPos.esiste(matrice) && matrice[nuovaPos.getX()][nuovaPos.getY()].getVisitato() != 1 && matrice[nuovaPos.getX()][nuovaPos.getY()].getValore() == valoreCorrente) {
                 area += areaFigura(matrice, nuovaPos);
             }
         }
