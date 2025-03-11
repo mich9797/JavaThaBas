@@ -22,24 +22,5 @@ public class Position {
         this.x = x;
         this.y = y;
     }
-
-    public void move(Direction dir){
-        switch (dir){
-            case UP:
-                setX(getX() + dir.x);
-                setY(getY() + dir.y);
-                break;
-            case RIGHT:
-                setX(getX() + dir.x);
-                setY(getY() + dir.y);
-                break;
-            case DOWN:
-                setX(getX() + dir.x);
-                setY(getY() + dir.y);
-                break;
-            default:
-                setX(getX() + dir.x);
-                setY(getY() + dir.y);
-        }
-    }
+    
 }
