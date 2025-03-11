@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1741bae-4caa-4765-a404-0333af7ff28a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../AOC12/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/.mvn/jvm.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/.mvn/maven.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/src/site/site.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AOC12/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AOC9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC9/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b1741bae-4caa-4765-a404-0333af7ff28a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +40,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC9"
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC8"
   }
 }]]></component>
   <component name="RecentsManager">
