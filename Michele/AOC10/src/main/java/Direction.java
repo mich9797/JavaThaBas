@@ -1,4 +1,4 @@
-public enum Direzione {
+public enum Direction {
     UP(-1, 0),
     RIGHT(0, 1),
     DOWN(1, 0),
@@ -7,13 +7,13 @@ public enum Direzione {
     public final int x;
     public final int y;
 
-    Direzione(int x, int y) {
+    Direction(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public static Direzione getNextDirezione(Direzione corrente) {
-        return switch (corrente) {
+    public static Direction getNextDirezione(Direction direction) {
+        return switch (direction) {
             case UP -> RIGHT;
             case RIGHT -> DOWN;
             case DOWN -> LEFT;
