@@ -22,8 +22,6 @@ public class AOC10modificato {
 
         TopographicMap topographicMap = new TopographicMap(matrix); // creato la mia mappa
 
-        System.out.println(topographicMap.contains(0,0));
-
         System.out.println(readMatrix(topographicMap));
 
     }
