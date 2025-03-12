@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -21,13 +20,15 @@ public class AOC11 {
 
     public static void rules(List<Long> numbers){
         for( int i=0; i < numbers.size(); i++){
-            long condition;
+            int condition;
             if (Long.toString(numbers.get(i)).length() %2 == 0){
                 condition = -1;
+            }else if(numbers.get(i) == 0){
+                condition = 0;
             }else {
-                condition = numbers.get(i);
+                condition = 1;
             }
-            switch ((int) condition){
+            switch (condition){
                 case 0:
                     numbers.set(i , 1L);
                     break;
@@ -37,7 +38,7 @@ public class AOC11 {
                     long num2 = Long.parseLong(Long.toString(numbers.get(i)).substring(half));
                     numbers.add(i, num1);
                     numbers.set(i+1, num2);
-                    i++;
+                    i++;  // aumento i per evitare che il cilo esamini anche il secondo numero che ho appena aggiunto
                     break;
                 default:
                     numbers.set(i, numbers.get(i)*2024);
