@@ -32,15 +32,14 @@ public class AOC10ParteDue {
             for (int j=0; j < topographicMap.width; j++){
                 Cell currentCell = topographicMap.getCellAtPosition(i,j).orElseThrow();
                 if(currentCell.getNumber() == 0) {
-                    List<Cell> visited = new ArrayList<>(); // per memorizzare le celle con il 9 che raggiungo
-                    cont += cercaPercorsi(topographicMap, currentCell, visited, 0);
+                    cont += cercaPercorsi(topographicMap, currentCell, 0);
                 }
             }
         }
         return cont;
     }
 
-    public static int cercaPercorsi(TopographicMap topographicMap, Cell cell, List<Cell> visited, int num){
+    public static int cercaPercorsi(TopographicMap topographicMap, Cell cell, int num){
         if (cell.getNumber() == 9){
             return 1;
         }
@@ -50,7 +49,7 @@ public class AOC10ParteDue {
                 .filter(optional -> optional.map( c -> topographicMap.contains(c)).orElse(false))
                 .forEach(nextCell -> {
                     if ( nextCell.map(Cell::getNumber).map(number -> number == num+1).orElse(false)){
-                        percorsi.addAndGet(cercaPercorsi(topographicMap, nextCell.get(), visited, num + 1));
+                        percorsi.addAndGet(cercaPercorsi(topographicMap, nextCell.get(), num + 1));
                     }
                 });
         return percorsi.get();
