@@ -15,6 +15,7 @@ public class AOC11 {
             rules(numbers);
         }
 
+
         System.out.println(numbers.size());
     }
 
