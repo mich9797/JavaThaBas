@@ -28,11 +28,11 @@ public class AOC13 {
 
         List<ClawMachine> clawMachinesList = generaClawMachines(coppieNumeri);
 
-        int tot = clawMachinesList.stream().mapToInt(claw -> playClaeMachine(claw)).sum();
+        int tot = clawMachinesList.stream().mapToInt(claw -> playClawMachine(claw)).sum();
         System.out.println(tot);
     }
 
-    public static int playClaeMachine(ClawMachine clawMachine){
+    public static int playClawMachine(ClawMachine clawMachine){
         do {
             clawMachine.resetClaw();
             while (clawMachine.getB().getCont() < clawMachine.getB().getMax()) {
