@@ -35,7 +35,7 @@ public class AOC13 {
     public static int playClawMachine(ClawMachine clawMachine){
         do {
             clawMachine.resetClaw();
-            while (clawMachine.getB().getCont() < clawMachine.getB().getMax()) {
+            while (clawMachine.getClaw().getX() < clawMachine.getPrize().getX() && clawMachine.getB().getCont() < clawMachine.getB().getMax()) {
                 clawMachine.moveClaw(clawMachine.getB());
                 clawMachine.getB().incrCont();
             }
