@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class AOC14 {
     public static void main(String[] args) {
         final var input = AOC14.class.getResourceAsStream("input");
-        List<Robot> robots = new BufferedReader(new InputStreamReader(input)).lines()
+        final List<Robot> robots = new BufferedReader(new InputStreamReader(input)).lines()
                 .map(riga -> {
                     Pattern pattern = Pattern.compile("(\\d+|-\\d+)");
                     Matcher matcher = pattern.matcher(riga);
