@@ -37,7 +37,4 @@ public class Button {
         setCont(getCont() +1);
     }
 
-    public void resetCont(){
-        setCont(0);
-    }
 }

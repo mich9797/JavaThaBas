@@ -47,8 +47,8 @@ public class AOC13 {
                 return (clawMachine.getB().getCont())+(clawMachine.getA().getCont()*3);
             }
             clawMachine.getB().reduceMax();
-            clawMachine.getB().resetCont();
-            clawMachine.getA().resetCont();
+            clawMachine.getB().setCont(0);
+            clawMachine.getA().setCont(0);
         } while(clawMachine.getB().getMax() > 0);
         return 0;
     }
