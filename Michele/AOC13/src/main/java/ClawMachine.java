@@ -37,4 +37,5 @@ public class ClawMachine {
         this.claw.setX(0);
         this.claw.setY(0);
     }
+
 }

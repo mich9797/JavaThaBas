@@ -53,6 +53,7 @@ public class AOC13 {
         return 0;
     }
 
+
     public static List<ClawMachine> generaClawMachines(List<int[]> lista){
         List<ClawMachine> clawMachinesList = new ArrayList<>();
         for (int i=0; i < lista.size(); i = i+3){
