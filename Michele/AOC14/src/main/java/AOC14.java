@@ -18,10 +18,7 @@ public class AOC14 {
                     }
                     return numbers;
                 })
-                .map(nums -> {
-                    Robot robot = new Robot(new Coordinates(nums.get(1), nums.get(0)), new Coordinates(nums.get(3), nums.get(2)));
-                    return robot;
-                })
+                .map(nums -> new Robot(new Coordinates(nums.get(0), nums.get(1)), new Coordinates(nums.get(2), nums.get(3))))
                 .toList();
 
         int[][] matrix = new int[103][101]; // dimensioni date dall'esercizio
@@ -32,7 +29,7 @@ public class AOC14 {
                         robot.move();
                         robot.getCoordinates().checkCoordinates(matrix);
                     }
-                    matrix[robot.getCoordinates().getX()][robot.getCoordinates().getY()] += 1;
+                    matrix[robot.getCoordinates().getY()][robot.getCoordinates().getX()] += 1;
                 });
 
         System.out.println(contTotQuadrants(matrix));
