@@ -7,79 +7,29 @@ import java.util.regex.Pattern;
 
 public class AOC14 {
     public static void main(String[] args) {
+        Matrix matrix = new Matrix();
+
         final var input = AOC14.class.getResourceAsStream("input");
-        final List<Robot> robots = new BufferedReader(new InputStreamReader(input)).lines()
-                .map(riga -> {
-                    Pattern pattern = Pattern.compile("(\\d+|-\\d+)");
+        final int[] quadrants = new BufferedReader(new InputStreamReader(input)).lines()
+                .mapToInt(riga -> {
+                    Pattern pattern = Pattern.compile("(-?\\d+)");
                     Matcher matcher = pattern.matcher(riga);
-                    List<Integer> numbers = new ArrayList<>();
-                    while (matcher.find()){
-                        numbers.add(Integer.parseInt(matcher.group()));
+                    List<Integer> nums = new ArrayList<>();
+                    while(matcher.find()){
+                        nums.add(Integer.parseInt(matcher.group()));
                     }
-                    return numbers;
+                    Robot rb = new Robot(new Coordinates(nums.get(0), nums.get(1)), new Coordinates(nums.get(2), nums.get(3)));
+                    int q = rb.getCoordinates().moveAtQuadrant(rb.getSpeed(), matrix.getLength(), matrix.getWidth());
+                    return q;
                 })
-                .map(nums -> new Robot(new Coordinates(nums.get(0), nums.get(1)), new Coordinates(nums.get(2), nums.get(3))))
-                .toList();
+                .filter(q -> q < 4)
+                .toArray();
 
-        int[][] matrix = new int[103][101]; // dimensioni date dall'esercizio
-
-        robots.stream()
-                .forEach(robot -> {
-                    for (int i=0; i <100; i++){
-                        robot.move();
-                        robot.getCoordinates().checkCoordinates(matrix);
-                    }
-                    matrix[robot.getCoordinates().getY()][robot.getCoordinates().getX()] += 1;
-                });
-
-        System.out.println(contTotQuadrants(matrix));
-    }
-
-    public static int contTotQuadrants(int[][] matrix){
-        int halfY = matrix.length / 2;
-        int halfX = matrix[0].length / 2;
-        int[] cont = new int[4];
-        int tot = 1;
-
-        for(int reps=0; reps < 4; reps++){
-            int contQ = 0;
-            switch(reps){
-                case 0:
-                    for(int i=0; i < halfY; i++){
-                        for(int j=0; j < halfX; j++){
-                            contQ += matrix[i][j];
-                        }
-                    }
-                    cont[reps] = contQ;
-                    break;
-                case 1:
-                    for(int i=0; i < halfY; i++){
-                        for(int j=halfX+1; j < matrix[0].length; j++){
-                            contQ += matrix[i][j];
-                        }
-                    }
-                    cont[reps] = contQ;
-                    break;
-                case 2:
-                    for(int i=halfY+1; i < matrix.length; i++){
-                        for(int j=0; j < halfX; j++){
-                            contQ += matrix[i][j];
-                        }
-                    }
-                    cont[reps] = contQ;
-                    break;
-                default:
-                    for(int i=halfY+1; i < matrix.length; i++){
-                        for(int j=halfX+1; j < matrix[0].length; j++){
-                            contQ += matrix[i][j];
-                        }
-                    }
-                    cont[reps] = contQ;
-            }
+        
+        int[] quad = new int[4];
+        for (int num : quadrants){
+                quad[num] += 1;
         }
-        for(int n : cont){
-            tot *= n;
-        }
-        return tot;
+        System.out.println(quad[0] * quad[1] * quad[2] * quad[3]);
     }
 }

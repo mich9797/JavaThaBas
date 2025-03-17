@@ -14,13 +14,4 @@ public class Robot {
     public Coordinates getSpeed() {
         return speed;
     }
-
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    public void move(){
-        this.coordinates.setX(this.coordinates.getX() + this.speed.getX());
-        this.coordinates.setY(this.coordinates.getY() + this.speed.getY());
-    }
 }
