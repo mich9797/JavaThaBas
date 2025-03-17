@@ -9,15 +9,6 @@ public class Coordinates {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
-    }
-
-
-    public int getY() {
-        return y;
-    }
-
     public int moveAtQuadrant(Coordinates vector, int length, int width) {
         this.x = (this.x + (vector.x * 100)) % length;
         if (this.x < 0){
