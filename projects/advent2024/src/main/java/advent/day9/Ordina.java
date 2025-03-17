@@ -3,28 +3,21 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Ordina {
-    public void sort(List<Integer> code) {
+    public static void sort(List<Integer> code) {
         if (code == null) {
             throw new IllegalArgumentException("Code list cannot be null, mona.");
         }
-        for (int i = 0; i < code.size(); i++) {
+        for (int i = 0, j = code.size() - 1; i < j; i++) {
             if (code.get(i) == -1) {
-                int lastNumIndex = findLastNumberIndex(code);
-                if (lastNumIndex <= i) {
+                while (code.get(j) < 0) {
+                    j--;
+                }
+                if (j < i) {
                     break;
                 }
-                int temp = code.get(lastNumIndex);
-                code.set(lastNumIndex, code.get(i));
-                code.set(i, temp);
+                code.set(i, code.get(j));
+                j--;
             }
         }
-    }
-
-    private int findLastNumberIndex(List<Integer> code) {
-        return IntStream.range(0, code.size())
-                .map(i -> code.size() - 1 - i)
-                .filter(i -> code.get(i) != -1)
-                .findFirst()
-                .orElse(-1);
     }
 }

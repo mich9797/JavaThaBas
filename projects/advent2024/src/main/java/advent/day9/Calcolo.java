@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Calcolo {
-    public long calcoloIlTotale(List<Integer> code) {
+    public static long calcoloIlTotale(List<Integer> code) {
         if (code == null) {
             throw new IllegalArgumentException("Code list cannot be null, mona.");
         }

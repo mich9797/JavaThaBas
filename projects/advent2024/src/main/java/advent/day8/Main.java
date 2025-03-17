@@ -15,8 +15,8 @@ public class Main {
         char[][] grid = lines.stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
-        Map<Character, List<int[]>> antennas = trovaAntenne.findAntennas(grid);
-        int result = trovaAntinodi.trovaAntinodi(antennas, grid.length, grid[0].length);
+        Map<Character, List<Vector>> antennas = TrovaAntenne.findAntennas(grid);
+        int result = TrovaAntinodi.trovaAntinodi(antennas, grid.length, grid[0].length);
         System.out.println(result);
     }
 }

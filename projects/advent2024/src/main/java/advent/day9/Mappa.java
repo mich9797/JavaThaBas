@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mappa {
-    public List<Integer> compile(String input) {
+    public static List<Integer> compile(String input) {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("Input no null or empty.");
         }

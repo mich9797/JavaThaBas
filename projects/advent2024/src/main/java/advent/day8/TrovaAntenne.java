@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class trovaAntenne {
-    public static Map<Character, List<int[]>> findAntennas(char[][] grid) {
-        Map<Character, List<int[]>> antennas = new HashMap<>();
+public class TrovaAntenne {
+    public static Map<Character, List<Vector>> findAntennas(char[][] grid) {
+        Map<Character, List<Vector>> antennas = new HashMap<>();
         int columns = grid[0].length;
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < columns; col++) {
                 char cell = grid[row][col];
                 if (isValidAntennaCell(cell)) {
-                    addToAntennaMap(antennas, cell, row, col);
+                    antennas.computeIfAbsent(cell, k -> new ArrayList<>()).add(new Vector(row, col));
                 }
             }
         }
@@ -24,7 +24,4 @@ public class trovaAntenne {
         return Character.isLetterOrDigit(cell);
     }
 
-    private static void addToAntennaMap(Map<Character, List<int[]>> antennas, char cell, int row, int col) {
-        antennas.computeIfAbsent(cell, k -> new ArrayList<>()).add(new int[]{row, col});
-    }
 }
