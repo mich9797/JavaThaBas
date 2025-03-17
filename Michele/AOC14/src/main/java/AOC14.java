@@ -22,10 +22,10 @@ public class AOC14 {
                     int q = rb.getCoordinates().moveAtQuadrant(rb.getSpeed(), matrix.getLength(), matrix.getWidth());
                     return q;
                 })
-                .filter(q -> q < 4)
+                .filter(q -> q != 4)
                 .toArray();
 
-        
+
         int[] quad = new int[4];
         for (int num : quadrants){
                 quad[num] += 1;
