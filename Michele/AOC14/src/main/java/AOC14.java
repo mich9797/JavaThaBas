@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 public class AOC14 {
     public static void main(String[] args) {
-        Matrix matrix = new Matrix();
-
         final var input = AOC14.class.getResourceAsStream("input");
         final int[] quadrants = new BufferedReader(new InputStreamReader(input)).lines()
                 .mapToInt(riga -> {
@@ -19,7 +17,7 @@ public class AOC14 {
                         nums.add(Integer.parseInt(matcher.group()));
                     }
                     Robot rb = new Robot(new Coordinates(nums.get(0), nums.get(1)), new Coordinates(nums.get(2), nums.get(3)));
-                    int q = rb.getCoordinates().moveAtQuadrant(rb.getSpeed(), matrix.getLength(), matrix.getWidth());
+                    int q = rb.getCoordinates().moveAtQuadrant(rb.getSpeed(), 101, 103);
                     return q;
                 })
                 .filter(q -> q != 4)
