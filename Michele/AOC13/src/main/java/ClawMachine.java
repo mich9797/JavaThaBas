@@ -1,4 +1,3 @@
-
 public class ClawMachine {
     private final Button a;
     private final Button b;
@@ -12,25 +11,38 @@ public class ClawMachine {
         this.claw = new Coordinates(0,0);
     }
 
-    public Button getA() {
-        return a;
+    public int play(){
+        do {
+            moveClawAtMax(this.b);
+            if (prizeNotReached()) {
+                do{
+                    moveClawAtMax(this.a);
+                    if (this.a.getMax() == 100 && prizeNotReached()) {
+                        return 0;
+                    } else if(winPrize()) {
+                        return (this.b.getMax() + this.a.getMax() * 3);
+                    }
+                    moveBackClaw(this.a);
+                    this.a.decrMax();
+                }while (this.a.getMax() > 1);
+            } else if (winPrize()) {
+                return this.b.getMax();
+            }
+            this.a.setMax(100);
+            this.b.decrMax();
+            resetClaw();
+        }while(this.b.getMax() > 1);
+        return 0;
     }
 
-    public Button getB() {
-        return b;
+    public void moveClawAtMax(Button button){
+        this.claw.setX(this.claw.getX() + (button.getCoordinates().getX() * button.getMax()));
+        this.claw.setY(this.claw.getY() + (button.getCoordinates().getY() * button.getMax()));
     }
 
-    public Coordinates getPrize() {
-        return prize;
-    }
-
-    public Coordinates getClaw() {
-        return claw;
-    }
-
-    public void moveClaw(Button button){
-        this.claw.setX(this.claw.getX() + button.getCoordinates().getX());
-        this.claw.setY(this.claw.getY() + button.getCoordinates().getY());
+    public void moveBackClaw(Button button){
+        this.claw.setX(this.claw.getX() - (button.getCoordinates().getX() * button.getMax()));
+        this.claw.setY(this.claw.getY() - (button.getCoordinates().getY() * button.getMax()));
     }
 
     public void resetClaw(){
@@ -38,4 +50,11 @@ public class ClawMachine {
         this.claw.setY(0);
     }
 
+    public boolean winPrize(){
+        return (this.claw.getX() == this.prize.getX() && this.claw.getY() == this.prize.getY());
+    }
+
+    public boolean prizeNotReached(){
+       return (this.claw.getX() < this.prize.getX() && this.claw.getY() < this.prize.getY());
+    }
 }
