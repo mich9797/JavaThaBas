@@ -17,19 +17,19 @@ public class ClawMachine {
         do {
             moveClawAtMaxButton(this.b);
             if (prizeNotReachedYet()) {
-                do{
-                    moveClawAtMaxButton(this.a);
-                    if (prizeNotReachedYet()) {
-                        if (this.a.getMax() == 100){
-                            return Optional.empty();
+                moveClawAtMaxButton(this.a);
+                    do{
+                        if (prizeNotReachedYet()) {
+                            if (this.a.getMax() == 100){
+                                return Optional.empty();
+                            }
+                            break;
+                        } else if(winPrize()) {
+                            return Optional.of(this.b.getMax() + (this.a.getMax() * 3));
                         }
-                        break;
-                    } else if(winPrize()) {
-                        return Optional.of(this.b.getMax() + (this.a.getMax() * 3));
-                    }
-                    moveBackClaw(this.a);
-                    this.a.decrMax();
-                }while (this.a.getMax() > 1);
+                        moveBackClaw(this.a);
+                        this.a.decrMax();
+                    }while (this.a.getMax() > 1);
             } else if (winPrize()) {
                 return Optional.of(this.b.getMax());
             }
@@ -46,8 +46,8 @@ public class ClawMachine {
     }
 
     public void moveBackClaw(Button button){
-        this.claw.setX(this.claw.getX() - button.buttonAtMax().getX());
-        this.claw.setY(this.claw.getY() - button.buttonAtMax().getY());
+        this.claw.setX(this.claw.getX() - button.getCoordinates().getX());
+        this.claw.setY(this.claw.getY() - button.getCoordinates().getY());
     }
 
     public void resetClaw(){

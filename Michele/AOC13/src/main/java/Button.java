@@ -15,6 +15,10 @@ public class Button {
         this.max = max;
     }
 
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
     public void decrMax(){
         setMax(getMax() -1);
     }
