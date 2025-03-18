@@ -22,4 +22,5 @@ public class Button {
     public void decrMax(){
         setMax(getMax() -1);
     }
+
 }

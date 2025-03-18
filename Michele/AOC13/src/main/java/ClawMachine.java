@@ -57,4 +57,5 @@ public class ClawMachine {
     public boolean prizeNotReached(){
        return (this.claw.getX() < this.prize.getX() && this.claw.getY() < this.prize.getY());
     }
+
 }

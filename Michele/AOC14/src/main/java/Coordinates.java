@@ -1,41 +1,50 @@
+import java.util.Optional;
 
 public class Coordinates {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int moveAtQuadrant(Coordinates vector, int length, int width) {
-        this.x = (this.x + (vector.x * 100)) % length;
-        if (this.x < 0){
-            this.x += length;
-        }
-        this.y = (this.y + (vector.y * 100)) % width;
-        if (this.y < 0){
-            this.y += width;
-        }
-        return quadrantForCoordinates(length, width);
+    public Coordinates add(Coordinates other) {
+        return new Coordinates(this.x + other.x, this.y + other.y);
     }
 
-    public int quadrantForCoordinates(int length, int width){
+    public Coordinates scalarMul(int factor) {
+        return new Coordinates(this.x * factor, this.y * factor);
+    }
+
+    public Coordinates modulus(int length, int width) {
+        return new Coordinates(Math.floorMod(this.x, length), Math.floorMod(this.y, width));
+    }
+
+    public enum Quadrant {
+        TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT
+    }
+    public Optional<Quadrant> quadrant(int length, int width) {
         int halfX = length/2;
         int halfY = width/2;
         if (this.x < halfX){
             if(this.y < halfY){
-                return 0;
+                return Optional.of(Quadrant.TOP_LEFT);
             }else if(this.y > halfY){
-                return 2;
+                return Optional.of(Quadrant.BOTTOM_LEFT);
             }
         }else if(this.x > halfX){
             if(this.y < halfY){
-                return 1;
+                return Optional.of(Quadrant.TOP_RIGHT);
             }else if(this.y > halfY) {
-                return 3;
+                return Optional.of(Quadrant.BOTTOM_RIGHT);
             }
         }
-        return 4;
+        return Optional.empty();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d %d", this.x, this.y);
     }
 }
