@@ -25,7 +25,7 @@ public class ClawMachine {
                         }
                         break;
                     } else if(winPrize()) {
-                        return Optional.of(this.b.getMax() + this.a.getMax() * 3);
+                        return Optional.of(this.b.getMax() + (this.a.getMax() * 3));
                     }
                     moveBackClaw(this.a);
                     this.a.decrMax();
