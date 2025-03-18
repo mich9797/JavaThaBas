@@ -16,7 +16,7 @@ public class AOC13 {
     public static void main(String[] args)  {
         final var input = AOC13.class.getResourceAsStream("input");
 
-        List<Integer> numbers = new BufferedReader(new InputStreamReader(input))
+        final List<Integer> numbers = new BufferedReader(new InputStreamReader(input))
                 .lines()
                 .filter(riga -> !riga.isEmpty())
                 .flatMap(riga -> {
