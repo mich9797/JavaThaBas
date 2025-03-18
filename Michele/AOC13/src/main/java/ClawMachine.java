@@ -1,3 +1,5 @@
+import java.util.Optional;
+
 public class ClawMachine {
     private final Button a;
     private final Button b;
@@ -11,38 +13,41 @@ public class ClawMachine {
         this.claw = new Coordinates(0,0);
     }
 
-    public int play(){
+    public Optional<Integer> playClawMachine(){
         do {
-            moveClawAtMax(this.b);
-            if (prizeNotReached()) {
+            moveClawAtMaxButton(this.b);
+            if (prizeNotReachedYet()) {
                 do{
-                    moveClawAtMax(this.a);
-                    if (this.a.getMax() == 100 && prizeNotReached()) {
-                        return 0;
+                    moveClawAtMaxButton(this.a);
+                    if (prizeNotReachedYet()) {
+                        if (this.a.getMax() == 100){
+                            return Optional.empty();
+                        }
+                        break;
                     } else if(winPrize()) {
-                        return (this.b.getMax() + this.a.getMax() * 3);
+                        return Optional.of(this.b.getMax() + this.a.getMax() * 3);
                     }
                     moveBackClaw(this.a);
                     this.a.decrMax();
                 }while (this.a.getMax() > 1);
             } else if (winPrize()) {
-                return this.b.getMax();
+                return Optional.of(this.b.getMax());
             }
             this.a.setMax(100);
             this.b.decrMax();
             resetClaw();
         }while(this.b.getMax() > 1);
-        return 0;
+        return Optional.empty();
     }
 
-    public void moveClawAtMax(Button button){
-        this.claw.setX(this.claw.getX() + (button.getCoordinates().getX() * button.getMax()));
-        this.claw.setY(this.claw.getY() + (button.getCoordinates().getY() * button.getMax()));
+    public void moveClawAtMaxButton(Button button){
+        this.claw.setX(this.claw.getX() + button.buttonAtMax().getX());
+        this.claw.setY(this.claw.getY() + button.buttonAtMax().getY());
     }
 
     public void moveBackClaw(Button button){
-        this.claw.setX(this.claw.getX() - (button.getCoordinates().getX() * button.getMax()));
-        this.claw.setY(this.claw.getY() - (button.getCoordinates().getY() * button.getMax()));
+        this.claw.setX(this.claw.getX() - button.buttonAtMax().getX());
+        this.claw.setY(this.claw.getY() - button.buttonAtMax().getY());
     }
 
     public void resetClaw(){
@@ -54,8 +59,9 @@ public class ClawMachine {
         return (this.claw.getX() == this.prize.getX() && this.claw.getY() == this.prize.getY());
     }
 
-    public boolean prizeNotReached(){
+    public boolean prizeNotReachedYet(){
        return (this.claw.getX() < this.prize.getX() && this.claw.getY() < this.prize.getY());
     }
+
 
 }

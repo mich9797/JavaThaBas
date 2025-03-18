@@ -7,10 +7,6 @@ public class Button {
         this.max = 100;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
     public int getMax() {
         return max;
     }
@@ -23,4 +19,7 @@ public class Button {
         setMax(getMax() -1);
     }
 
+    public Coordinates buttonAtMax(){
+        return new Coordinates((this.coordinates.getX()*this.max), (this.coordinates.getY()*this.max));
+    }
 }
