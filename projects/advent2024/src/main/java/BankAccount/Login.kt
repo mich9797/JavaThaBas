@@ -1,5 +1,0 @@
-package BankAccount
-
-interface Login {
-
-}
