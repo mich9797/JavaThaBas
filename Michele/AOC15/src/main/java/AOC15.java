@@ -18,31 +18,15 @@ public class AOC15 {
                 .filter(riga -> !riga.contains("#"))
                 .toList();
 
-        final int righe = file.size();
-        final int colonne = file.get(0).length();
-        final Cell[][] matrix = new Cell[righe][colonne];
-
-        Position pawn = new Position(); //pedina di che si muove
-
-        for (int i = 0; i < righe; i++) {
-            for (int j = 0; j < colonne; j++) {
-                if(file.get(i).charAt(j) == '@'){
-                    pawn.setX(i);// mi salvo la posizione della pedina
-                    pawn.setY(j);
-                }
-                matrix[i][j] = new Cell(file.get(i).charAt(j), new Position(i, j));
-            }
-        }
-
-        House house = new House(matrix);
+        House house = new House(file);
 
         moves.forEach(riga -> {
                     for(int i=0; i < riga.length(); i++){
                         Direction direction = Direction.whatDirection(riga.charAt(i));//creo una direzione in base al carattere che trovo
-                        Cell cellPawn = house.cellAtPosition(pawn);
+                        Cell cellPawn = house.cellAtPosition(house.getRobot());
                         if (house.tryToMoveInDirection(cellPawn, direction)){  //vedo se posso muovermi in quella direzione
                             house.tryChangeCells(cellPawn, direction);
-                            pawn.setPositionAtDirection(direction);  //sposto posizione della pedina
+                            house.getRobot().setPositionAtDirection(direction);  //sposto posizione della pedina
                         }
                     }
                 });
@@ -64,7 +48,5 @@ public class AOC15 {
 //        for (String s : moves){
 //            System.out.println(s);
 //        }
-
-
     }
 }

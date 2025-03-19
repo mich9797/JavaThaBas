@@ -1,9 +1,31 @@
+import java.util.List;
 public class House {
     private Cell[][] matrix;
+    private Position robot;
 
+    public House(List<String> file){
+        int righe = file.size();
+        int colonne = file.get(0).length();
+        Cell[][] matrix = new Cell[righe][colonne];
 
-    public House(Cell[][] matrix) {
+        Position robot = new Position();
+
+        for (int i = 0; i < righe; i++) {
+            for (int j = 0; j < colonne; j++) {
+                if(file.get(i).charAt(j) == '@'){
+                    robot.setX(i);
+                    robot.setY(j);
+                }
+                matrix[i][j] = new Cell(file.get(i).charAt(j), new Position(i, j));
+            }
+        }
+
         this.matrix = matrix;
+        this.robot = robot;
+    }
+
+    public Position getRobot() {
+        return robot;
     }
 
     public Cell[][] getMatrix() {
