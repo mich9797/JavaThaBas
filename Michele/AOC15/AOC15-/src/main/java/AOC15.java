@@ -21,15 +21,15 @@ public class AOC15 {
         House house = new House(file);
 
         moves.forEach(riga -> {
-                    for(int i=0; i < riga.length(); i++){
-                        Direction direction = Direction.whatDirection(riga.charAt(i));//creo una direzione in base al carattere che trovo
-                        Cell cellPawn = house.cellAtPosition(house.getRobot());
-                        if (house.tryToMoveInDirection(cellPawn, direction)){  //vedo se posso muovermi in quella direzione
-                            house.tryChangeCells(cellPawn, direction);
-                            house.getRobot().setPositionAtDirection(direction);  //sposto posizione della pedina
-                        }
-                    }
-                });
+            for(int i=0; i < riga.length(); i++){
+                Direction direction = Direction.whatDirection(riga.charAt(i));//creo una direzione in base al carattere che trovo
+                Cell cellPawn = house.cellAtPosition(house.getRobot());
+                if (house.tryToMoveInDirection(cellPawn, direction)){  //vedo se posso muovermi in quella direzione
+                    house.tryChangeCells(cellPawn, direction);
+                    house.getRobot().setPositionAtDirection(direction);  //sposto posizione della pedina
+                }
+            }
+        });
 
         int tot = Arrays.stream(house.getMatrix())
                 .flatMap(Arrays::stream)
