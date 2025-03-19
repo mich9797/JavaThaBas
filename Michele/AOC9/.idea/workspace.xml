@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14c63934-393e-416a-aa18-4238ed6bf71c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AOC10/AOC10ParteDue/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC10/AOC10ParteDue/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AOC11/src/main/java/AOC11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC11/src/main/java/AOC11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +47,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC11"
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC7"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1741bae-4caa-4765-a404-0333af7ff28a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AOC15/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.mvn/jvm.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/.mvn/maven.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/site/site.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AOC15/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AOC11/src/main/java/AOC11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC11/src/main/java/AOC11.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AOC9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC9/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +51,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AOC10"
+    "last_opened_file_path": "/home/mtha/Basello/JavaThaBas/Michele/AdventOfCode/Day6/Day6primo"
   }
 }]]></component>
   <component name="RecentsManager">

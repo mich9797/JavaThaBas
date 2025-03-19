@@ -7,11 +7,12 @@ import java.util.stream.Collectors;
 public class AOC11 {
     public static void main(String[] args) {
         var input = AOC11.class.getResourceAsStream("input");
-        List<Long> numbers = new BufferedReader(new InputStreamReader(input)).lines().flatMap(riga -> Arrays.stream(riga.split(" ")))
+        List<Long> numbers = new BufferedReader(new InputStreamReader(input)).lines()
+                .flatMap(riga -> Arrays.stream(riga.split(" ")))
                 .map(Long::parseLong)
                 .collect(Collectors.toList());
 
-        for (int i=0; i < 25; i++){
+        for (int i=0; i < 10; i++){
             rules(numbers);
         }
 
@@ -19,21 +20,25 @@ public class AOC11 {
         System.out.println(numbers.size());
     }
 
+    public enum Codition {
+            ZERO, EVEN, NOONE
+    }
+
     public static void rules(List<Long> numbers){
         for( int i=0; i < numbers.size(); i++){
-            int condition;
+            Codition condition;
             if (Long.toString(numbers.get(i)).length() %2 == 0){
-                condition = -1;
+                condition = Codition.EVEN;
             }else if(numbers.get(i) == 0){
-                condition = 0;
+                condition = Codition.ZERO;
             }else {
-                condition = 1;
+                condition = Codition.NOONE;
             }
             switch (condition){
-                case 0:
+                case ZERO:
                     numbers.set(i , 1L);
                     break;
-                case -1:
+                case EVEN:
                     int half = Long.toString(numbers.get(i)).length() / 2;
                     long num1 = Long.parseLong(Long.toString(numbers.get(i)).substring(0,half));
                     long num2 = Long.parseLong(Long.toString(numbers.get(i)).substring(half));
