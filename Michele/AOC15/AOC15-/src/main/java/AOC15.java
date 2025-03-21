@@ -23,9 +23,9 @@ public class AOC15 {
         moves.forEach(riga -> {
             for(int i=0; i < riga.length(); i++){
                 Direction direction = Direction.whatDirection(riga.charAt(i));//creo una direzione in base al carattere che trovo
-                Cell cellPawn = house.cellAtPosition(house.getRobot());
-                if (house.tryToMoveInDirection(cellPawn, direction)){  //vedo se posso muovermi in quella direzione
-                    house.tryChangeCells(cellPawn, direction);
+                Cell cellRobot = house.cellAtPosition(house.getRobot());
+                if (house.tryToMoveInDirection(cellRobot, direction)){  //vedo se posso muovermi in quella direzione
+                    house.tryChangeCells(cellRobot, direction);
                     house.getRobot().setPositionAtDirection(direction);  //sposto posizione della pedina
                 }
             }
