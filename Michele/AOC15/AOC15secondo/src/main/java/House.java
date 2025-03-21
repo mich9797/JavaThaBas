@@ -14,8 +14,7 @@ public class House {
         for (int i = 0; i < file.size(); i++) {
             for (int j = 0; j < file.get(0).length(); j++) {
                 int k = j*2;
-                char c = file.get(i).charAt(j);
-                Sign s = Sign.NOTHING.whatSign(c);
+                Sign s = Sign.NOTHING.whatSign(file.get(i).charAt(j));
                 switch (s){
                     case WALL:
                         matrix[i][k] = new Cell(Sign.WALL, new Position(i,k));
