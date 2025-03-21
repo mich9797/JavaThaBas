@@ -15,24 +15,25 @@ public class House {
             for (int j = 0; j < file.get(0).length(); j++) {
                 int k = j*2;
                 char c = file.get(i).charAt(j);
-                switch (c){
-                    case '#':
-                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
-                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k+1));
+                Sign s = Sign.NOTHING.whatSign(c);
+                switch (s){
+                    case WALL:
+                        matrix[i][k] = new Cell(Sign.WALL, new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.WALL, new Position(i,k+1));
                         break;
-                    case 'O':
-                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign('['), new Position(i,k));
-                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(']'), new Position(i,k+1));
+                    case BOX:
+                        matrix[i][k] = new Cell(Sign.LEFTBOX, new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.RIGHTBOX, new Position(i,k+1));
                         break;
-                    case '.':
-                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
-                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k+1));
+                    case NOTHING:
+                        matrix[i][k] = new Cell(Sign.NOTHING, new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING, new Position(i,k+1));
                         break;
                     default:
                         robot.setX(i);
                         robot.setY(k);
-                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
-                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign('.'), new Position(i,k+1));
+                        matrix[i][k] = new Cell(Sign.ROBOT, new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING, new Position(i,k+1));
                 }
             }
         }

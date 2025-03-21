@@ -2,6 +2,7 @@ public enum Sign{
     WALL('#'),
     LEFTBOX('['),
     RIGHTBOX(']'),
+    BOX('O'),
     NOTHING('.'),
     ROBOT('@');
 
@@ -20,6 +21,7 @@ public enum Sign{
             case '[' -> LEFTBOX;
             case ']' -> RIGHTBOX;
             case '.' -> NOTHING;
+            case 'O' -> BOX;
             default -> ROBOT;
         };
     }
