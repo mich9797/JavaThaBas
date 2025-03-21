@@ -16,7 +16,7 @@ public class House {
                     robot.setX(i);
                     robot.setY(j);
                 }
-                matrix[i][j] = new Cell(Sign.NOTHING.whatSymbol(file.get(i).charAt(j)), new Position(i, j));
+                matrix[i][j] = new Cell(Sign.NOTHING.whatSign(file.get(i).charAt(j)), new Position(i, j));
             }
         }
 

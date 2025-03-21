@@ -11,11 +11,11 @@ public class AOC15secondo {
         List<String> file = new ArrayList<>();
         List<String> moves = new BufferedReader(new InputStreamReader(input)).lines()
                 .peek(riga -> {
-                    if (riga.contains(String.valueOf(Symbol.WALL.getC()))){
+                    if (riga.contains(String.valueOf(Sign.WALL.getC()))){
                         file.add(riga);
                     }
                 })
-                .filter(riga -> !riga.contains(String.valueOf(Symbol.WALL.getC())))
+                .filter(riga -> !riga.contains(String.valueOf(Sign.WALL.getC())))
                 .toList();
 
         House house = new House(file);
@@ -25,7 +25,7 @@ public class AOC15secondo {
                 Direction direction = Direction.whatDirection(riga.charAt(i));
                 Cell cellPawn = house.cellAtPosition(house.getRobotPos());
                 if (house.tryToMoveInDirection(cellPawn, direction)){
-                    house.tryChangeCells(cellPawn, direction);
+                    house.changeCells(cellPawn, direction);
                     house.getRobotPos().setPositionAtDirection(direction);
                 }
             }
@@ -33,7 +33,7 @@ public class AOC15secondo {
 
         int tot = Arrays.stream(house.getMatrix())
                 .flatMap(Arrays::stream)
-                .filter(cell -> cell.getValue() == Symbol.LEFTBOX.getC())
+                .filter(cell -> cell.getSign() == Sign.LEFTBOX)
                 .mapToInt(Cell::sumCellValue)
                 .sum();
 

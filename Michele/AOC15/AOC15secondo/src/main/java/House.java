@@ -17,22 +17,22 @@ public class House {
                 char c = file.get(i).charAt(j);
                 switch (c){
                     case '#':
-                        matrix[i][k] = new Cell('#', new Position(i,k));
-                        matrix[i][k+1] = new Cell('#', new Position(i,k+1));
+                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k+1));
                         break;
                     case 'O':
-                        matrix[i][k] = new Cell('[', new Position(i,k));
-                        matrix[i][k+1] = new Cell(']', new Position(i,k+1));
+                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign('['), new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(']'), new Position(i,k+1));
                         break;
                     case '.':
-                        matrix[i][k] = new Cell('.', new Position(i,k));
-                        matrix[i][k+1] = new Cell('.', new Position(i,k+1));
+                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k+1));
                         break;
                     default:
                         robot.setX(i);
                         robot.setY(k);
-                        matrix[i][k] = new Cell('@', new Position(i,k));
-                        matrix[i][k+1] = new Cell('.', new Position(i,k+1));
+                        matrix[i][k] = new Cell(Sign.NOTHING.whatSign(c), new Position(i,k));
+                        matrix[i][k+1] = new Cell(Sign.NOTHING.whatSign('.'), new Position(i,k+1));
                 }
             }
         }
@@ -55,15 +55,15 @@ public class House {
 
     public boolean tryToMoveInDirection(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if (nextCell.getValue() == Symbol.NOTHING.getC()){
+        if (nextCell.getSign() == Sign.NOTHING){
             return true;
-        } else if (nextCell.getValue() == Symbol.WALL.getC()) {
+        } else if (nextCell.getSign() == Sign.WALL) {
             return false;
         }else {
             if ( direction == Direction.RIGHT || direction == Direction.LEFT){
                 return tryToMoveInDirection(cellAtDirection(nextCell, direction), direction);
             }else{
-                if (nextCell.getValue() == Symbol.LEFTBOX.getC()){
+                if (nextCell.getSign() == Sign.LEFTBOX){
                     return (tryToMoveInDirection(nextCell, direction) && tryToMoveInDirection(cellAtDirection(nextCell, Direction.RIGHT), direction));
                 }else{
                     return (tryToMoveInDirection(nextCell, direction) && tryToMoveInDirection(cellAtDirection(nextCell, Direction.LEFT), direction));
@@ -80,27 +80,27 @@ public class House {
         return this.matrix[position.getX() + direction.x][position.getY() + direction.y];
     }
 
-    public void tryChangeCells(Cell cell, Direction direction){
+    public void changeCells(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if (nextCell.getValue() != Symbol.NOTHING.getC()){
+        if (nextCell.getSign() != Sign.NOTHING){
             if (direction == Direction.RIGHT || direction == Direction.LEFT){
-                tryChangeCells(nextCell, direction);
+                changeCells(nextCell, direction);
             }else {
-                if(nextCell.getValue() == Symbol.LEFTBOX.getC()){
-                    tryChangeCells(nextCell,direction);
-                    tryChangeCells(cellAtDirection(nextCell, Direction.RIGHT), direction);
+                if(nextCell.getSign() == Sign.LEFTBOX){
+                    changeCells(nextCell,direction);
+                    changeCells(cellAtDirection(nextCell, Direction.RIGHT), direction);
                 }else{
-                    tryChangeCells(nextCell,direction);
-                    tryChangeCells(cellAtDirection(nextCell, Direction.LEFT), direction);
+                    changeCells(nextCell,direction);
+                    changeCells(cellAtDirection(nextCell, Direction.LEFT), direction);
                 }
             }
         }
-        changeValueCells(cell, nextCell);
+        changeSignCells(cell, nextCell);
     }
 
-    public void changeValueCells(Cell cell, Cell nextCell){
-        char temp = nextCell.getValue();
-        nextCell.setValue(cell.getValue());
-        cell.setValue(temp);
+    public void changeSignCells(Cell cell, Cell nextCell){
+        Sign temp = nextCell.getSign();
+        nextCell.setSign(cell.getSign());
+        cell.setSign(temp);
     }
 }

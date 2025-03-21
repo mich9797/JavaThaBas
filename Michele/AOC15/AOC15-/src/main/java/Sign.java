@@ -13,7 +13,7 @@ public enum Sign{
         return this.c;
     }
 
-    public Sign whatSymbol(char c){
+    public Sign whatSign(char c){
         return switch (c){
             case '#' -> WALL;
             case 'O' -> BOX;

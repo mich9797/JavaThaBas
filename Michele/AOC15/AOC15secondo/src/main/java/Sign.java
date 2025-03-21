@@ -1,4 +1,4 @@
-public enum Symbol{
+public enum Sign{
     WALL('#'),
     LEFTBOX('['),
     RIGHTBOX(']'),
@@ -6,7 +6,7 @@ public enum Symbol{
     ROBOT('@');
 
     public char c;
-    Symbol(char c){
+    Sign(char c){
         this.c = c;
     }
 
@@ -14,7 +14,7 @@ public enum Symbol{
         return this.c;
     }
 
-    public Symbol whatSymbol(char c){
+    public Sign whatSign(char c){
         return switch (c){
             case '#' -> WALL;
             case '[' -> LEFTBOX;
