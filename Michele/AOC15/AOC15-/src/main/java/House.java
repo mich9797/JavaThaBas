@@ -12,11 +12,11 @@ public class House {
 
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if(file.get(i).charAt(j) == Symbol.ROBOT.getC()){
+                if(file.get(i).charAt(j) == Sign.ROBOT.getC()){
                     robot.setX(i);
                     robot.setY(j);
                 }
-                matrix[i][j] = new Cell(file.get(i).charAt(j), new Position(i, j));
+                matrix[i][j] = new Cell(Sign.NOTHING.whatSymbol(file.get(i).charAt(j)), new Position(i, j));
             }
         }
 
@@ -34,9 +34,9 @@ public class House {
 
     public boolean tryToMoveInDirection(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell,direction);
-        if (nextCell.getValue() == Symbol.WALL.getC()){
+        if (nextCell.getSign() == Sign.WALL){
             return false;
-        } else if (nextCell.getValue() == Symbol.NOTHING.getC()) {
+        } else if (nextCell.getSign() == Sign.NOTHING) {
             return true;
         } else {
             return tryToMoveInDirection(nextCell, direction);
@@ -55,18 +55,18 @@ public class House {
         return cellAtDirection(cell.getPosition(), direction);
     }
 
-    public void changeValueCells(Cell cell, Cell nextCell){
-        char temp = nextCell.getValue();
-        nextCell.setValue(cell.getValue());
-        cell.setValue(temp);
+    public void changeSignCells(Cell cell, Cell nextCell){
+        Sign temp = nextCell.getSign();
+        nextCell.setSign(cell.getSign());
+        cell.setSign(temp);
     }
 
     public void changeCells(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if ( nextCell.getValue() == Symbol.BOX.getC()){
+        if ( nextCell.getSign() == Sign.BOX){
             changeCells(nextCell, direction); //la richiamo per vedere se ci sono altri pacchi
         }
-        changeValueCells(cell, nextCell);  //scambio i valori delle celle
+        changeSignCells(cell, nextCell);  //scambio i valori delle celle
     }
 
 }

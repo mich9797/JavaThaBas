@@ -1,25 +1,25 @@
 public class Cell {
-    private char value;
+    private Sign sign;
     private final Position position;
 
-    public Cell(char value, Position position) {
-        this.value = value;
+    public Cell(Sign sign, Position position) {
+        this.sign = sign;
         this.position = position;
     }
 
-    public char getValue() {
-        return value;
+    public Sign getSign() {
+        return sign;
     }
 
-    public void setValue(char value) {
-        this.value = value;
+    public void setSign(Sign sign) {
+        this.sign = sign;
     }
 
     public Position getPosition() {
         return position;
     }
 
-    public int sumCellValue(){
+    public int sumCellSign(){
         return (100 * this.position.getX()) + this.position.getY();
     }
 
