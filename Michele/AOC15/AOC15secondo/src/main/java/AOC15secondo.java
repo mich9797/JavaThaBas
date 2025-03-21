@@ -11,11 +11,11 @@ public class AOC15secondo {
         List<String> file = new ArrayList<>();
         List<String> moves = new BufferedReader(new InputStreamReader(input)).lines()
                 .peek(riga -> {
-                    if (riga.contains("#")){
+                    if (riga.contains(String.valueOf(Symbol.WALL.getC()))){
                         file.add(riga);
                     }
                 })
-                .filter(riga -> !riga.contains("#"))
+                .filter(riga -> !riga.contains(String.valueOf(Symbol.WALL.getC())))
                 .toList();
 
         House house = new House(file);
@@ -33,7 +33,7 @@ public class AOC15secondo {
 
         int tot = Arrays.stream(house.getMatrix())
                 .flatMap(Arrays::stream)
-                .filter(cell -> cell.getValue()=='[')
+                .filter(cell -> cell.getValue() == Symbol.LEFTBOX.getC())
                 .mapToInt(Cell::sumCellValue)
                 .sum();
 

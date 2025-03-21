@@ -55,15 +55,15 @@ public class House {
 
     public boolean tryToMoveInDirection(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if (nextCell.getValue() == '.'){
+        if (nextCell.getValue() == Symbol.NOTHING.getC()){
             return true;
-        } else if (nextCell.getValue() == '#') {
+        } else if (nextCell.getValue() == Symbol.WALL.getC()) {
             return false;
         }else {
             if ( direction == Direction.RIGHT || direction == Direction.LEFT){
                 return tryToMoveInDirection(cellAtDirection(nextCell, direction), direction);
             }else{
-                if (nextCell.getValue() == '['){
+                if (nextCell.getValue() == Symbol.LEFTBOX.getC()){
                     return (tryToMoveInDirection(nextCell, direction) && tryToMoveInDirection(cellAtDirection(nextCell, Direction.RIGHT), direction));
                 }else{
                     return (tryToMoveInDirection(nextCell, direction) && tryToMoveInDirection(cellAtDirection(nextCell, Direction.LEFT), direction));
@@ -82,11 +82,11 @@ public class House {
 
     public void tryChangeCells(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if (nextCell.getValue() != '.'){
+        if (nextCell.getValue() != Symbol.NOTHING.getC()){
             if (direction == Direction.RIGHT || direction == Direction.LEFT){
                 tryChangeCells(nextCell, direction);
             }else {
-                if(nextCell.getValue() == '['){
+                if(nextCell.getValue() == Symbol.LEFTBOX.getC()){
                     tryChangeCells(nextCell,direction);
                     tryChangeCells(cellAtDirection(nextCell, Direction.RIGHT), direction);
                 }else{
