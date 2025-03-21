@@ -12,7 +12,7 @@ public class House {
 
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if(file.get(i).charAt(j) == '@'){
+                if(file.get(i).charAt(j) == Symbol.ROBOT.getC()){
                     robot.setX(i);
                     robot.setY(j);
                 }
@@ -34,9 +34,9 @@ public class House {
 
     public boolean tryToMoveInDirection(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell,direction);
-        if (nextCell.getValue() == '#'){
+        if (nextCell.getValue() == Symbol.WALL.getC()){
             return false;
-        } else if (nextCell.getValue() == '.') {
+        } else if (nextCell.getValue() == Symbol.NOTHING.getC()) {
             return true;
         } else {
             return tryToMoveInDirection(nextCell, direction);
@@ -61,10 +61,10 @@ public class House {
         cell.setValue(temp);
     }
 
-    public void tryChangeCells(Cell cell, Direction direction){
+    public void changeCells(Cell cell, Direction direction){
         Cell nextCell = cellAtDirection(cell, direction);
-        if ( nextCell.getValue() == 'O'){
-            tryChangeCells(nextCell, direction); //la richiamo per vedere se ci sono altri pacchi
+        if ( nextCell.getValue() == Symbol.BOX.getC()){
+            changeCells(nextCell, direction); //la richiamo per vedere se ci sono altri pacchi
         }
         changeValueCells(cell, nextCell);  //scambio i valori delle celle
     }
