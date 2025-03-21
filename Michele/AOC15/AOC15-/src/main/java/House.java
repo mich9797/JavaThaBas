@@ -12,11 +12,12 @@ public class House {
 
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if(file.get(i).charAt(j) == Sign.ROBOT.getC()){
+                Sign sign = Sign.NOTHING.whatSign(file.get(i).charAt(j));
+                if(sign == Sign.ROBOT){
                     robot.setX(i);
                     robot.setY(j);
                 }
-                matrix[i][j] = new Cell(Sign.NOTHING.whatSign(file.get(i).charAt(j)), new Position(i, j));
+                matrix[i][j] = new Cell(sign, new Position(i, j));
             }
         }
 

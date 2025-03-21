@@ -11,11 +11,11 @@ public class AOC15secondo {
         List<String> file = new ArrayList<>();
         List<String> moves = new BufferedReader(new InputStreamReader(input)).lines()
                 .peek(riga -> {
-                    if (riga.contains(String.valueOf(Sign.WALL.getC()))){
+                    if (riga.contains("#")){
                         file.add(riga);
                     }
                 })
-                .filter(riga -> !riga.contains(String.valueOf(Sign.WALL.getC())))
+                .filter(riga -> !riga.contains("#"))
                 .toList();
 
         House house = new House(file);

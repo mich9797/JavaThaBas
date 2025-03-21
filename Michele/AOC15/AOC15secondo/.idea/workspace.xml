@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54b6b73f-9cea-4d3a-897c-d74399954e32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AOC15-/src/main/java/AOC15.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC15-/src/main/java/AOC15.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AOC15-/src/main/java/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC15-/src/main/java/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AOC15-/src/main/java/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AOC15-/src/main/java/Sign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AOC15secondo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AOC15secondo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sign.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

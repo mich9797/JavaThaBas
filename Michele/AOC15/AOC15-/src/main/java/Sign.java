@@ -1,17 +1,8 @@
 public enum Sign{
-    WALL('#'),
-    BOX('O'),
-    NOTHING('.'),
-    ROBOT('@');
-
-    public char c;
-    Sign(char c){
-        this.c = c;
-    }
-
-    public char getC(){
-        return this.c;
-    }
+    WALL,
+    BOX,
+    NOTHING,
+    ROBOT;
 
     public Sign whatSign(char c){
         return switch (c){
