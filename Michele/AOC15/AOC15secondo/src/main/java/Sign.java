@@ -6,7 +6,7 @@ public enum Sign{
     NOTHING('.'),
     ROBOT('@');
 
-    public char c;
+    public final char c;
     Sign(char c){
         this.c = c;
     }

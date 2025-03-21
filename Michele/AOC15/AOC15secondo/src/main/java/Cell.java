@@ -1,6 +1,6 @@
 public class Cell {
     private Sign sign;
-    private Position position;
+    private final Position position;
 
     public Cell(Sign sign, Position position) {
         this.sign = sign;
