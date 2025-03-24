@@ -1,39 +1,38 @@
 import java.util.List;
 
 public class Labirint {
-    private char[][] matrix;
+    private Cell[][] matrix;
     private Position pawn;
     private Position end;
-    private int points;
 
     public Labirint(List<String> file) {
         int righe = file.size();
         int colonne = file.get(0).length();
-        char[][] matrix = new char[righe][colonne];
+        Cell[][] matrix = new Cell[righe][colonne];
 
         Position pawn = new Position();
         Position end = new Position();
 
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
+                matrix[i][j] = new Cell(file.get(i).charAt(j), new Position(i,j));
                 if(file.get(i).charAt(j) == 'S'){
                     pawn.setX(i);
                     pawn.setY(j);
+                    matrix[i][j].setPoints(0);
                 } else if (file.get(i).charAt(j) == 'E') {
                     end.setX(i);
                     end.setY(j);
                 }
-                matrix[i][j] = file.get(i).charAt(j);
             }
         }
 
         this.matrix = matrix;
         this.pawn = pawn;
         this.end = end;
-        this.points = 0;
     }
 
-    public char[][] getMatrix() {
+    public Cell[][] getMatrix() {
         return matrix;
     }
 
@@ -41,38 +40,41 @@ public class Labirint {
         return pawn;
     }
 
-    public void setPawn(Position pawn) {
-        this.pawn = pawn;
-    }
-
     public Position getEnd() {
         return end;
     }
 
-    public void setEnd(Position end) {
-        this.end = end;
+    public boolean checkNextPosition(Cell cell, Direction direction){
+        Cell nextCell = cellAtDirection(cell, direction);
+        return !(nextCell.getLetter() == '#' || (nextCell.getPoints() < cell.getPoints() && nextCell.getPoints() > 0));
     }
 
-    public int getPoints() {
-        return points;
+    public Cell cellAtDirection(Cell cell, Direction direction){
+        return  cellAtDirection(cell.getCellPos(), direction);
     }
 
-    public void setPoints(int points) {
-        this.points = points;
+    public Cell cellAtDirection(Position position, Direction direction){
+        return this.matrix[position.getX() + direction.x][position.getY() + direction.y];
     }
 
-    public boolean checkNextPosition(Position pos, Direction direction){
-        Position nextPos = positionAtDirection(pos, direction);
-        return (this.matrix[nextPos.getX()][nextPos.getY()] == '.');
+    public Cell cellAtPosition(Position position){
+        return this.matrix[position.getX()][position.getY()];
     }
 
-    public Position positionAtDirection(Position pos, Direction direction){
-        int nextX = pos.getX() + direction.x;
-        int nextY = pos.getY() + direction.y;
-        return new Position(nextX, nextY);
-    }
-
-    public void play(Position pos, Direction direction){
-
+    public void play(Position position, Direction direction){
+        Cell currentCell = cellAtPosition(position);
+        for (Direction dir : Direction.values()){
+            if (dir != Direction.getOppositeDirection(direction)){
+                if (checkNextPosition(currentCell, dir)){
+                    Cell nextCell = cellAtDirection(currentCell, dir);
+                    if (dir == direction){
+                        nextCell.setPoints(currentCell.getPoints() + 1);
+                    }else {
+                        nextCell.setPoints(currentCell.getPoints() + 1001);
+                    }
+                    play(nextCell.getCellPos(), dir);
+                }
+            }
+        }
     }
 }

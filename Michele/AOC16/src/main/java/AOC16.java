@@ -9,6 +9,14 @@ public class AOC16 {
 
         Labirint labirint = new Labirint(file);
 
+        labirint.play(labirint.getPawn(), Direction.RIGHT);
+        System.out.println(labirint.cellAtPosition(labirint.getEnd()).getPoints());
 
+//        for(Cell[] c : labirint.getMatrix()){
+//            for(Cell cel : c){
+//                System.out.print(cel.getPoints() + "  ");
+//            }
+//            System.out.println();
+//        }
     }
 }

@@ -11,4 +11,13 @@ public enum Direction {
         this.x = x;
         this.y = y;
     }
+
+    public static Direction getOppositeDirection(Direction direction){
+        return switch (direction){
+            case RIGHT -> LEFT;
+            case DOWN -> UP;
+            case LEFT -> RIGHT;
+            default -> DOWN;
+        };
+    }
 }
