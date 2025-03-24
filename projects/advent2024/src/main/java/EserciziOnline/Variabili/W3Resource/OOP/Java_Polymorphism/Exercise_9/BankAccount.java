@@ -1,28 +1,39 @@
 package EserciziOnline.Variabili.W3Resource.OOP.Java_Polymorphism.Exercise_9;
 
-public class BankAccount {
-
-   private double bilancio;
 
 
-   public BankAccount(double bilancioIniziale) {
-       this.bilancio = bilancio;
-   }
+class BankAccount {
 
-    public double getBilancio() {
-        return bilancio;
+
+    private double balance;
+
+
+    public BankAccount(double initialBalance) {
+
+        this.balance = initialBalance;
     }
 
-    public void deposito(double quantita){
-       bilancio += quantita;
 
+    public double getBalance() {
+
+        return balance;
     }
 
-    public void ritiroSoldi (double quantita) {
-       if (quantita <= bilancio) {
-           bilancio -= quantita;
-       } else {
-           System.out.println("Fondi insufficienti poraccio");
-       }
+
+    public void deposit(double amount) {
+
+        balance += amount;
+    }
+
+
+    public void withdraw(double amount) {
+
+        if (amount <= balance) {
+
+            balance -= amount;
+        } else {
+
+            System.out.println("Insufficient funds.");
+        }
     }
 }
