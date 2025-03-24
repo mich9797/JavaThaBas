@@ -12,7 +12,7 @@ public class House {
 
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                Sign sign = Sign.NOTHING.whatSign(file.get(i).charAt(j));
+                Sign sign = Sign.whatSign(file.get(i).charAt(j));
                 if(sign == Sign.ROBOT){
                     robot.setX(i);
                     robot.setY(j);

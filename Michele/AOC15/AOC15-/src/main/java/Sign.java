@@ -4,7 +4,7 @@ public enum Sign{
     NOTHING,
     ROBOT;
 
-    public Sign whatSign(char c){
+    public static Sign whatSign(char c){
         return switch (c){
             case '#' -> WALL;
             case 'O' -> BOX;
