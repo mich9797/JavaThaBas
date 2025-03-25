@@ -5,25 +5,26 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AOC15 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         final var input = AOC15.class.getResourceAsStream("input");
-        List<String> file = new ArrayList<>();
-        List<String> moves = new BufferedReader(new InputStreamReader(input)).lines()
-                .peek(riga -> {
-                    if (riga.contains("#")){
-                        file.add(riga);
+        final List<String> file = new ArrayList<>();
+        final List<String> moves = new ArrayList<>();
+        new BufferedReader(new InputStreamReader(input)).lines()
+                .forEach(row -> {
+                    if (row.contains("#")) {
+                        file.add(row);
+                    } else {
+                        moves.add(row);
                     }
-                })
-                .filter(riga -> !riga.contains("#"))
-                .toList();
+                });
 
         House house = new House(file);
 
         moves.forEach(riga -> {
-            for(int i=0; i < riga.length(); i++){
+            for (int i = 0; i < riga.length(); i++) {
                 Direction direction = Direction.whatDirection(riga.charAt(i));//creo una direzione in base al carattere che trovo
                 Cell cellRobot = house.cellAtPosition(house.getRobot());
-                if (house.tryToMoveInDirection(cellRobot, direction)){  //vedo se posso muovermi in quella direzione
+                if (house.tryToMoveInDirection(cellRobot, direction)) {  //vedo se posso muovermi in quella direzione
                     house.changeCells(cellRobot, direction);
                     house.getRobot().setPositionAtDirection(direction);  //sposto posizione della pedina
                 }
@@ -32,7 +33,7 @@ public class AOC15 {
 
         int tot = Arrays.stream(house.getMatrix())
                 .flatMap(Arrays::stream)
-                .filter(cell -> cell.getSign()== Sign.BOX)
+                .filter(cell -> cell.getSign() == Sign.BOX)
                 .mapToInt(Cell::sumCellSign)
                 .sum();
 

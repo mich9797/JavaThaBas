@@ -1,4 +1,6 @@
 import java.util.List;
+import java.util.Optional;
+
 public class House {
     private Cell[][] matrix;
     private Position robot;
@@ -48,15 +50,15 @@ public class House {
         return this.matrix[position.getX()][position.getY()];
     }
 
-    public Cell cellAtDirection(Position position, Direction direction){
+    private Cell cellAtDirection(Position position, Direction direction){
         return this.matrix[position.getX() + direction.x][position.getY() + direction.y];
     }
 
-    public Cell cellAtDirection(Cell cell, Direction direction){
+    private Cell cellAtDirection(Cell cell, Direction direction){
         return cellAtDirection(cell.getPosition(), direction);
     }
 
-    public void changeSignCells(Cell cell, Cell nextCell){
+    private void changeSignCells(Cell cell, Cell nextCell){
         Sign temp = nextCell.getSign();
         nextCell.setSign(cell.getSign());
         cell.setSign(temp);
