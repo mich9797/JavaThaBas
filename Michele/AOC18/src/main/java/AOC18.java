@@ -17,13 +17,13 @@ public class AOC18 {
 
         memorySpace.reachTheExit(new Position(0,0), Direction.RIGHT);
 
-//        for (Cell[] c : memorySpace.getMemorySpace()){
-//            for(Cell cell : c){
-////                System.out.printf("%5d", cell.getPoints());
-//                System.out.print(cell.getValue());
-//            }
-//            System.out.println();
-//        }
+        for (Cell[] c : memorySpace.getMemorySpace()){
+            for(Cell cell : c){
+//                System.out.printf("%5d", cell.getPoints());
+                System.out.print(cell.getValue());
+            }
+            System.out.println();
+        }
         System.out.println(memorySpace.getMemorySpace()[memorySpace.row-1][memorySpace.column-1].getPoints());
     }
 }
